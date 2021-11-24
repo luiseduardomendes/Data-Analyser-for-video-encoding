@@ -11,6 +11,19 @@ def removeParemeter(string):
     index = string.find("(")
     return string[:index]
 
+class DataStruct:
+    percentageTime = float
+    cumulativeTIme = float
+    selfTime = float
+    calls = int
+    selfSCall = float
+    totalSCall = float
+    name = str
+
+
+
+dados = DataStruct
+listaDados = list()
 
 
 dataFile = open ("akiyo.txt", "r")
