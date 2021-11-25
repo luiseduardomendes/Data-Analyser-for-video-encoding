@@ -1,15 +1,15 @@
 #teste classes
 
 class DataStruct:
-    percentageTime = float
-    cumulativeTime = float
-    selfTime = float
-    calls = int
-    selfSCall = float
-    totalSCall = float
-    name = str
-
-dados = DataStruct
+    def __init__(self, percentageTime=0, cumulativeTime=0, selfTime=0, calls=0, selfSCall=0, totalSCall=0, name=0):
+        self.percentageTime = percentageTime
+        self.cumulativeTime = cumulativeTime
+        self.selfTime = selfTime
+        self.calls = calls
+        self.selfSCall = selfSCall
+        self.totalSCall = totalSCall
+        self.name = name
+dados = DataStruct()
 listaDados = list()
 
 dados.calls = 15
@@ -20,7 +20,7 @@ dados.totalSCall = 123.2
 dados.name = "RealizaCadastro"
 
 
-listaDados.append(dados[:])
+listaDados.append(dados)
 
 dados.calls = 21
 dados.cumulativeTime = 212.5
