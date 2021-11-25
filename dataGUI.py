@@ -1,11 +1,10 @@
+from os import name, terminal_size
 from tkinter import *
 from tkinter import font
 from tkinter import ttk
 
 
 root = Tk()
-
-
 
 class Aplication():
 
@@ -49,8 +48,32 @@ class Aplication():
         self.entry_vidAddress = Entry(self.frame2,text="endereço do vídeo", font="arial 11")
         self.entry_vidAddress.configure
         self.entry_vidAddress.place(relx= 0.05, rely=0.1, relwidth=0.79, relheight=0.04)
+        
 
-        self.btn_confirmAddress = Button(self.frame2, text="Abrir", font="arial 11")
+        self.btn_confirmAddress = Button(self.frame2, text="Abrir", font="arial 11", command=lambda: self.btn_confirmAddress_pressed())
         self.btn_confirmAddress.place(relx= 0.86, rely=0.1, relwidth=0.09, relheight=0.04)
+    
+    def verifyFile(self, nameFile):
+        try:
+            open(file=self.nameFile, mode="r")
+            return True
+        except ValueError:
+            return False
+
+    def btn_confirmAddress_pressed(self):
+        self.nameFile = self.entry_vidAddress.get()
+        if not self.verifyFile(self.nameFile) == True:
+            self.showErrorMessege()
+            
+    def showErrorMessage(self):
+        self.lb_errorMessege = Label(self.frame2, text="Arquivo não encontrado", font="arial 20", fg="#a9a8a2")
+        self.lb_errorMessege.configure(bg="#2c2d31")
+        self.lb_errorMessege.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.04)
+        
+            
+
 
 Aplication()
+
+
+
