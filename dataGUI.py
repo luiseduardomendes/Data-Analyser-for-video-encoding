@@ -55,20 +55,42 @@ class Aplication():
     
     def verifyFile(self, nameFile):
         try:
-            open(file=self.nameFile, mode="r")
-            return True
-        except ValueError:
+            with open(self.nameFile, 'r') as f:
+                return True
+        except IOError:
             return False
 
     def btn_confirmAddress_pressed(self):
         self.nameFile = self.entry_vidAddress.get()
-        if not self.verifyFile(self.nameFile) == True:
-            self.showErrorMessege()
+        if self.verifyFile(self.nameFile) == True:
+            self.ShowFileFoundMessage()
+        else: 
+            self.showErrorMessage()
             
     def showErrorMessage(self):
-        self.lb_errorMessege = Label(self.frame2, text="Arquivo não encontrado", font="arial 20", fg="#a9a8a2")
-        self.lb_errorMessege.configure(bg="#2c2d31")
-        self.lb_errorMessege.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.04)
+        self.lb_errorMessage = Label(self.frame2, text="Arquivo não encontrado\nclique em 'OK' para continuar", font="arial 20", fg="#a9a8a2", bd=5, relief="groove")
+        self.lb_errorMessage.configure(bg="#2c2d31")
+        self.lb_errorMessage.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.4)
+
+        self.btn_OkFileNotFound = Button(self.frame2, text="OK",command=lambda: self.closeErrorMessage())
+        self.btn_OkFileNotFound.place(relx=0.4, rely=0.6, relheight=0.05, relwidth=0.2)
+    
+    def closeErrorMessage(self):
+        self.lb_errorMessage.place_forget()
+        self.btn_OkFileNotFound.place_forget()
+
+    def ShowFileFoundMessage(self):
+        self.lb_videoFoundMessage = Label(self.frame2, text="Arquivo encontrado\nclique em 'OK' para continuar", font="arial 20", fg="#a9a8a2", bd=5, relief="groove")
+        self.lb_videoFoundMessage.configure(bg="#2c2d31")
+        self.lb_videoFoundMessage.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.4)
+
+        self.btn_OkFileFound = Button(self.frame2, text="OK",command=lambda: self.closeFoundFileMessage())
+        self.btn_OkFileFound.place(relx=0.4, rely=0.6, relheight=0.05, relwidth=0.2)
+        
+    def closeFoundFileMessage(self):
+        self.lb_videoFoundMessage.place_forget()
+        self.btn_OkFileFound.place_forget()
+
         
             
 
