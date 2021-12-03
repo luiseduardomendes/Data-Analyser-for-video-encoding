@@ -1,11 +1,9 @@
 import matplotlib.pyplot as plt
 
-from dataAnalytics import DataStruct
+from dataRead2 import DataStruct
 
 #entradas pelo usuario
 beginPlot = int 
 endPlot = int
 
 data = DataStruct
-
-data.calls

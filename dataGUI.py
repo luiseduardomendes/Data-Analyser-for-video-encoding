@@ -8,6 +8,8 @@ root = Tk()
 
 class Aplication():
 
+    videoAddres = str
+
     def __init__(self):
         self.root = root
         self.display()
@@ -24,11 +26,11 @@ class Aplication():
     def displayFrames(self):
         self.frame1 = Frame(self.root)
         self.frame1.configure(background="#393842", bd=4, relief="groove")
-        self.frame1.place(relx=0.005, rely=0.1, relheight=0.98, relwidth=0.245)
+        self.frame1.place(relx=0.005, rely=0.01, relheight=0.98, relwidth=0.245)
 
         self.frame2 = Frame(self.root)
         self.frame2.configure(background="#393842", bd=4, relief="groove")
-        self.frame2.place(relx=0.255, rely=0.1, relheight=0.98, relwidth=0.74)
+        self.frame2.place(relx=0.255, rely=0.01, relheight=0.98, relwidth=0.74)
 
     def displayButtons(self):
         configsAvailableList = ["All Intra", "Low Delay", "Random Acces"]
@@ -53,17 +55,40 @@ class Aplication():
 
         self.btn_confirmAddress = Button(self.frame2, text="Abrir", font="arial 11", command=lambda: self.btn_confirmAddress_pressed())
         self.btn_confirmAddress.place(relx= 0.9, rely=0.07, relwidth=0.09, relheight=0.05)
-    
+
+        self.btn_plotGraph = Button(self.frame1, text="Plotar gráfico", font="arial 11") #self.plotGraph())
+        self.btn_plotGraph.configure(font="arial 11", bg="#393842", fg="#a9a8a2")
+        self.btn_plotGraph.place(relx= 0.025, rely=0.5, relwidth=0.95, relheight=0.05)
+
+
+        # ENTRADA DO QUANTIZATION PARAMETER
+        self.lb_qParameter = Label(self.frame1, text="Parâmetro de quantização", font="arial 11", fg="#a9a8a2")
+        self.lb_qParameter.configure(bg="#2c2d31")
+        self.lb_qParameter.place(relx= 0.025, rely=0.08, relwidth=0.95, relheight=0.05)
+
+        self.entry_qParameter = Entry(self.frame1,text="Parâmetro de quantização", font="arial 11")
+        self.entry_qParameter.configure
+        self.entry_qParameter.place(relx= 0.025, rely=0.14, relwidth=0.95, relheight=0.05)
+
+        # ENTRADA DO NUMERO DE FRAMES
+        self.lb_frames = Label(self.frame1, text="Número de frames", font="arial 11", fg="#a9a8a2")
+        self.lb_frames.configure(bg="#2c2d31")
+        self.lb_frames.place(relx= 0.025, rely=0.21, relwidth=0.95, relheight=0.05)
+
+        self.entry_frames = Entry(self.frame1,text="Número de frames", font="arial 11")
+        self.entry_frames.configure
+        self.entry_frames.place(relx= 0.025, rely=0.27, relwidth=0.95, relheight=0.05)
     def verifyFile(self, nameFile):
         try:
-            with open(self.nameFile, 'r') as f:
+            with open(nameFile, 'r') as f:
                 return True
         except IOError:
             return False
 
     def btn_confirmAddress_pressed(self):
-        self.nameFile = self.entry_vidAddress.get()
-        if self.verifyFile(self.nameFile) == True:
+        self.videoAddres = self.entry_vidAddress.get()
+        if self.verifyFile(self.videoAddres) == True:
+            
             self.ShowFileFoundMessage()
         else: 
             self.showErrorMessage()
@@ -92,6 +117,9 @@ class Aplication():
     def closeFoundFileMessage(self):
         self.lb_videoFoundMessage.place_forget()
         self.btn_OkFileFound.place_forget()
+
+
+
             
 
 

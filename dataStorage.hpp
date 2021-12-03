@@ -35,3 +35,6 @@ public:
 
 
 };
+
+
+int jumpLines(int n, ifstream f);
