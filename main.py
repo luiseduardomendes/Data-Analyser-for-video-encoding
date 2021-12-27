@@ -1,4 +1,4 @@
-from os import name, terminal_size
+from os import name, system, terminal_size
 from tkinter import *
 from tkinter import font
 from tkinter import ttk
@@ -9,6 +9,12 @@ root = Tk()
 class Aplication():
 
     videoAddres = str
+    quantizationParameter = int
+    numberOfFrames = int 
+    configuration = str
+
+
+
 
     def __init__(self):
         self.root = root
@@ -44,7 +50,7 @@ class Aplication():
         self.lb_frames.configure(bg="#2c2d31")
         self.lb_frames.place(relx= 0.025, rely=0.21, relwidth=0.95, relheight=0.05)
 
-    def videoAddressLabel(self):
+    def labelVideoAddress(self):
         self.lb_videoAddress = Label(self.frame2, text="Endereço do vídeo", font="arial 11", fg="#a9a8a2")
         self.lb_videoAddress.configure(bg="#2c2d31")
         self.lb_videoAddress.place(relx= 0.01, rely=0.01, relwidth=0.98, relheight=0.05)
@@ -53,9 +59,9 @@ class Aplication():
 
     def configsSelectBox(self):
         configsAvailableList = ["All Intra", "Low Delay", "Random Acces"]
-        vConfig = StringVar()
-        vConfig.set("Configurações de codificação")
-        self.cb_cfg = OptionMenu(self.frame1, vConfig, *configsAvailableList)
+        self.vConfig = StringVar()
+        self.vConfig.set("Configurações de codificação")
+        self.cb_cfg = OptionMenu(self.frame1, self.vConfig, *configsAvailableList)
         self.cb_cfg.configure(font="arial 10", bg="#393842", fg="#a9a8a2")
         self.cb_cfg.place(relx= 0.025, rely=0.01, relwidth=0.95, relheight=0.05)
 
@@ -68,7 +74,7 @@ class Aplication():
         self.btn_confirmAddress.place(relx= 0.9, rely=0.07, relwidth=0.09, relheight=0.05)
 
     def buttonPlotGraph(self):
-        self.btn_plotGraph = Button(self.frame1, text="Plotar gráfico", font="arial 11") #self.plotGraph())
+        self.btn_plotGraph = Button(self.frame1, text="Plotar gráfico", font="arial 11", command=lambda: self.callPlotCreator())
         self.btn_plotGraph.configure(font="arial 11", bg="#393842", fg="#a9a8a2")   
         self.btn_plotGraph.place(relx= 0.025, rely=0.5, relwidth=0.95, relheight=0.05)
 
@@ -84,13 +90,42 @@ class Aplication():
 
     # FUNCTIONS
 
+    def callPlotCreator(self):
+        self.numberOfFrames = int(self.entry_frames.get())
+        self.quantizationParameter = int(self.entry_qParameter.get())
+        self.configuration = self.vConfig.get()
+
+        if self.numberOfFrames <= 0:
+            self.showErrorMessage("Número de Frames inválido \naperte OK para continuar")
+
+        elif self.quantizationParameter <= 0 or self.quantizationParameter > 54:
+            self.showErrorMessage("Parâmetro de quantização inválido\naperte OK para continuar")
+
+        elif self.configuration == "Configurações de codificação":
+            self.showErrorMessage("Selecione uma configuração\naperte OK para continuar")
+            
+        else:
+            if self.configuration == "All Intra":
+                cfg = "encoder_allintra_vtm.cfg"
+            elif self.configuration == "Low Delay": 
+                cfg = "encoder_lowdelay_vtm.cfg"
+            elif self.configuration == "Random Acces":
+                cfg = "encoder_randomaccess_vtm.cfg"
+            system(f'"C:/Users/dudup/OneDrive/Área de Trabalho/VVCSoftware_VTM/bin/vs16/msvc-19.29/x86_64/debug/EncoderApp.exe" -c {cfg} -i "{self.videoAddres}" -b out.bin - {self.quantizationParameter} -f 10 -fr {self.numberOfFrames} -wdt 176 -hgt 144 --Level=2.1')
+            print (f'"C:/Users/dudup/OneDrive/Área de Trabalho/VVCSoftware_VTM/bin/vs16/msvc-19.29/x86_64/debug/EncoderApp.exe" -c {cfg} -i "{self.videoAddres}" -b out.bin - {self.quantizationParameter} -f 10 -fr {self.numberOfFrames} -wdt 176 -hgt 144 --Level=2.1')
+
     def placeButtons(self):
         self.configsSelectBox()
         self.entryVideoAddress()
         self.entryNumberOfFrames()
         self.entryVideoAddress()
+        self.entryQuantizationParameter()
         self.buttonConfirmAddress()
         self.buttonPlotGraph()
+
+        self.labelQuantizationParameter()
+        self.labelNumberOfFrames()
+        self.labelVideoAddress()
 
     def verifyFile(self, nameFile):
         try:
@@ -101,34 +136,20 @@ class Aplication():
 
     def btn_confirmAddress_pressed(self):
         self.videoAddres = self.entry_vidAddress.get()
-        if self.verifyFile(self.videoAddres) == True:
+        if self.verifyFile(self.videoAddres) == False:
+            self.showErrorMessage("Arquivo não encontrado, clique em OK para continuar")
             
-            self.ShowFileFoundMessage()
-        else: 
-            self.showErrorMessage()
-            
-    def showErrorMessage(self):
+    def showErrorMessage(self, message):
         
-        self.lb_errorMessage = Label(self.frame2, text="Arquivo não encontrado\nclique em 'OK' para continuar", font="arial 13", fg="#a9a8a2", bd=5, relief="groove")
-        self.lb_errorMessage.configure(bg="#2c2d31")
-        self.lb_errorMessage.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.4)
+        self.lb_showErrorMessage = Label(self.frame2, text=message, font="arial 13", fg="#a9a8a2", bd=5, relief="groove")
+        self.lb_showErrorMessage.configure(bg="#2c2d31")
+        self.lb_showErrorMessage.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.4)
 
-        self.btn_OkFileNotFound = Button(self.frame2, text="OK",command=lambda: self.closeErrorMessage())
-        self.btn_OkFileNotFound.place(relx=0.4, rely=0.6, relheight=0.05, relwidth=0.2)
+        self.btn_closeErrorMessage = Button(self.frame2, text="OK",command=lambda: self.closeErrorMessage())
+        self.btn_closeErrorMessage.place(relx=0.4, rely=0.6, relheight=0.05, relwidth=0.2)
 
     def closeErrorMessage(self):
-        self.lb_errorMessage.place_forget()
-        self.btn_OkFileNotFound.place_forget()
+        self.lb_showErrorMessage.place_forget()
+        self.btn_closeErrorMessage.place_forget()
 
-    def ShowFileFoundMessage(self):
-        self.lb_videoFoundMessage = Label(self.frame2, text="Arquivo encontrado\nclique em 'OK' para continuar", font="arial 13", fg="#a9a8a2", bd=5, relief="groove")
-        self.lb_videoFoundMessage.configure(bg="#2c2d31")
-        self.lb_videoFoundMessage.place(relx= 0.3, rely=0.3, relwidth=0.4, relheight=0.4)
-
-        self.btn_OkFileFound = Button(self.frame2, text="OK",command=lambda: self.closeFoundFileMessage())
-        self.btn_OkFileFound.place(relx=0.4, rely=0.6, relheight=0.05, relwidth=0.2)
-        
-    def closeFoundFileMessage(self):
-        self.lb_videoFoundMessage.place_forget()
-        self.btn_OkFileFound.place_forget()
-
+Aplication()

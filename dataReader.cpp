@@ -1,14 +1,15 @@
 #include "dataStorage.hpp"
 #include <fstream>
-#include <string.h>
+#include <string>
+#include <cstring>
 
 int main() {
     ifstream dataFile;
     DataStorage dataStorage[20];
     string buffer; 
-    string buffCh, nameBuffer;
+    char *buffCh, *nameBuffer;
     
-    strcpy((char*)nameBuffer.c_str(), "");
+    strcpy(nameBuffer, "");
     dataFile.open("akiyo.txt");
 
     for (int i = 0; i < 5; i ++)
@@ -16,8 +17,8 @@ int main() {
         
     
     for (int i = 0; i < 20; i ++){
-        strcpy((char*)nameBuffer.c_str(), "");
-        strcpy((char*)buffCh.c_str(), "");
+        strcpy(nameBuffer, "");
+        strcpy(buffCh, "");
         
         getline(dataFile, buffer);
         
@@ -31,17 +32,14 @@ int main() {
         
         do{
             buffCh = strtok(NULL, " \t\n");
-            
         
-            if((char*)buffCh.c_str() != NULL){
-                strcat((char*)nameBuffer.c_str(), (char*)buffCh.c_str());
+            if(buffCh != NULL){
+                strcat(nameBuffer, buffCh);
                 cout << "hello" << endl;
             }
-        } while ((char*)buffCh.c_str() != NULL);strcpy((char*)nameBuffer.c_str(), "");
+        } while (buffCh != NULL);strcpy(nameBuffer, "");
         cout << nameBuffer << endl;
         dataStorage[i].insertName(nameBuffer);
-
-        
 
         dataStorage[i].showData();
     }
