@@ -94,6 +94,7 @@ class Aplication():
         self.numberOfFrames = int(self.entry_frames.get())
         self.quantizationParameter = int(self.entry_qParameter.get())
         self.configuration = self.vConfig.get()
+        
 
         if self.numberOfFrames <= 0:
             self.showErrorMessage("Número de Frames inválido \naperte OK para continuar")
@@ -106,13 +107,13 @@ class Aplication():
             
         else:
             if self.configuration == "All Intra":
-                cfg = "encoder_allintra_vtm.cfg"
+                cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_allintra_vtm.cfg"
             elif self.configuration == "Low Delay": 
-                cfg = "encoder_lowdelay_vtm.cfg"
+                cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_lowdelay_vtm.cfg"
             elif self.configuration == "Random Acces":
-                cfg = "encoder_randomaccess_vtm.cfg"
-            system(f'"C:/Users/dudup/OneDrive/Área de Trabalho/VVCSoftware_VTM/bin/vs16/msvc-19.29/x86_64/debug/EncoderApp.exe" -c {cfg} -i "{self.videoAddres}" -b out.bin - {self.quantizationParameter} -f 10 -fr {self.numberOfFrames} -wdt 176 -hgt 144 --Level=2.1')
-            print (f'"C:/Users/dudup/OneDrive/Área de Trabalho/VVCSoftware_VTM/bin/vs16/msvc-19.29/x86_64/debug/EncoderApp.exe" -c {cfg} -i "{self.videoAddres}" -b out.bin - {self.quantizationParameter} -f 10 -fr {self.numberOfFrames} -wdt 176 -hgt 144 --Level=2.1')
+                cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_randomaccess_vtm.cfg"
+            system(f'"/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/EncoderAppStatic" -c "{cfg}" -i "{self.videoAddres}" -b out.bin -q {self.quantizationParameter} -f 10 -fr {self.numberOfFrames} -wdt 176 -hgt 144 --Level=2.1')
+            
 
     def placeButtons(self):
         self.configsSelectBox()
