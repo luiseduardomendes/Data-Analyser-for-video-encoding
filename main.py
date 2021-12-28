@@ -88,6 +88,10 @@ class Aplication():
         self.entry_frames.configure
         self.entry_frames.place(relx= 0.025, rely=0.27, relwidth=0.95, relheight=0.05)
 
+    def buttonCreateTXT(self):
+        self.btn_createTXT = Button(self.frame1, text="Criar arquivo de texto de saída", font="arial 11", command=lambda: system("gprof EncoderAppStatic gmon.out >> akiyo.txt"))
+        self.btn_createTXT.place(relx= 0.025, rely=0.6, relwidth=0.95, relheight=0.05)
+
     # FUNCTIONS
 
     def callPlotCreator(self):
@@ -107,12 +111,12 @@ class Aplication():
             
         else:
             if self.configuration == "All Intra":
-                cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_allintra_vtm.cfg"
+                cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_intra_vtm.cfg"
             elif self.configuration == "Low Delay": 
                 cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_lowdelay_vtm.cfg"
             elif self.configuration == "Random Acces":
                 cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_randomaccess_vtm.cfg"
-            system(f'"/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/EncoderAppStatic" -c "{cfg}" -i "{self.videoAddres}" -b out.bin -q {self.quantizationParameter} -f 10 -fr {self.numberOfFrames} -wdt 176 -hgt 144 --Level=2.1')
+            system(f'"/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/EncoderAppStatic" -c "{cfg}" -i "{self.videoAddres}" -b out.bin -q {self.quantizationParameter} -f {self.numberOfFrames} -fr 60 -wdt 176 -hgt 144 --Level=2.1')
             
 
     def placeButtons(self):
@@ -123,6 +127,7 @@ class Aplication():
         self.entryQuantizationParameter()
         self.buttonConfirmAddress()
         self.buttonPlotGraph()
+        self.buttonCreateTXT()
 
         self.labelQuantizationParameter()
         self.labelNumberOfFrames()
@@ -138,7 +143,9 @@ class Aplication():
     def btn_confirmAddress_pressed(self):
         self.videoAddres = self.entry_vidAddress.get()
         if self.verifyFile(self.videoAddres) == False:
-            self.showErrorMessage("Arquivo não encontrado, clique em OK para continuar")
+            self.showErrorMessage("Arquivo não encontrado, \nclique em OK para continuar")
+        else:
+            self.showErrorMessage("Arquivo aberto com sucesso, \nclique em OK para continuar")
             
     def showErrorMessage(self, message):
         
