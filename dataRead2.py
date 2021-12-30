@@ -30,10 +30,7 @@ class DataStruct:
             print(f"{self.names[i]:75}, {self.percentageTime[i]:5}, {self.cumulativeTime[i]:5}, {self.selfTime[i]:5}, {self.selfSCall[i]:5}, {self.totalSCall[i]:5}")
     
     def plotGraph(self):
-        fig1 = plt
-        
-        fig1.plot(self.percentageTime, 2)
-        fig1.show()
+        print('Hello')
 
 dataStruct = DataStruct()
 dataFile = open("akiyo.txt", "r")

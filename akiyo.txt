@@ -1651,7 +1651,7 @@ index % time    self  children    called     name
                 0.00    0.00       1/1           EncGOP::xWriteAPS(AccessUnit&, APS*, int, bool) [1450]
                 0.00    0.00       1/1           ParameterSetMap<APS>::clearChangedFlag(int) [1356]
 -----------------------------------------------
-                0.00   50.50      33/33          EncApp::encode() [3]
+                0.00   50.50      33/33          EncApp::encode() [3]regularExpressionsText
 [2]     98.4    0.00   50.50      33         EncLib::encode(InputColourSpaceConversion, std::__cxx11::list<UnitBuf<short>*, std::allocator<UnitBuf<short>*> >&, int&) [2]
                 0.00   50.50      33/33          EncGOP::compressGOP(int, int, std::__cxx11::list<Picture*, std::allocator<Picture*> >&, std::__cxx11::list<UnitBuf<short>*, std::allocator<UnitBuf<short>*> >&, bool, bool, InputColourSpaceConversion, bool, bool, bool, int) [1]
 -----------------------------------------------
@@ -3922,7 +3922,7 @@ index % time    self  children    called     name
 -----------------------------------------------
                 0.03    0.00  452846/2109017     IntraSearch::xRecurIntraChromaCodingQT(CodingStructure&, Partitioner&, double, PartSplit) [29]
                 0.05    0.00  656775/2109017     InterSearch::encodeResAndCalcRdInterCU(CodingStructure&, Partitioner&, bool const&, bool, bool) [15]
-                0.07    0.00  999396/2109017     IntraSearch::xIntraCodingTUBlock(TransformUnit&, ComponentID const&, unsigned long&, int const&, unsigned int*, std::vector<std::pair<int, bool>, std::allocator<std::pair<int, bool> > >*, bool) [13]
+                0.07    0.00  999396/2109017     IntraSearch::xIntraCodingTUBlock(TransformUnit&, ComponentID const&, unsigned long&, int const&, unsigned int*, std::vector<std::pair<int, bool>, std::allocator<std::pair<int, bool> > >*, bool) [13]regularExpressionsText
 [195]    0.3    0.15    0.00 2109017         AreaBuf<short>::subtract(AreaBuf<short const> const&) [195]
 -----------------------------------------------
                 0.15    0.00  340733/340733      TrQuant::xInvLfnst(TransformUnit const&, ComponentID) [157]
@@ -4526,7 +4526,45 @@ index % time    self  children    called     name
                 0.04    0.03      10/10          IbcHashMap::rebuildPicHashMap(UnitBuf<short> const&) [272]
 [273]    0.1    0.04    0.03      10         void IbcHashMap::xxBuildPicHashMap<(ChromaFormat)1>(UnitBuf<short> const&) [273]
                 0.00    0.02  731790/731790      IbcHashMap::xxCalcBlockHash(short const*, int, int, int, unsigned int) [419]
-                0.01    0.00  243929/243929      std::_Hashtable<unsigned int, std::pair<unsigned int const, std::vector<Position, std::allocator<Position> > >, std::allocator<std::pair<unsigned int const, std::vector<Position, std::allocator<Position> > > >, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<unsigned int const, std::vector<Position, std::allocator<Position> > >, false>*) [539]
+                0.01    0.00  243929/243929      std::_Hashtable<unsigned int, std::pair<unsigned int const, std::vector<Position, std::allocator<Position> > >, std::allocator<std::pair<unsigned int const, std::vector<Position, std::allocator<Position> > > >, std::__detail::_Select1st, std::equal_to<unsigned int>, std::hash<unsigned int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__de                0.00    0.00  680931/26927997     CU::isIBC(CodingUnit const&) [360]
+                0.00    0.00 1044767/3232122     CodingStructure::getMotionInfo(Position const&) [768]
+-----------------------------------------------
+                0.00    0.00   25252/3331099     PU::getAffineMergeCand(PredictionUnit const&, AffineMergeCtx&, int) [316]
+                0.00    0.00   81258/3331099     PU::getInterMergeSubPuMvpCand(PredictionUnit const&, MergeCtx&, bool&, int, int) [400]
+                0.08    0.00 3224589/3331099     PU::spanMotionInfo(PredictionUnit&, MergeCtx const&) [187]
+[257]    0.2    0.09    0.00 3331099         AreaBuf<MotionInfo>::fill(MotionInfo const&) [257]
+-----------------------------------------------
+                0.00    0.00      10/1096014     EncGOP::compressGOP(int, int, std::__cxx11::list<Picture*, std::allocator<Picture*> >&, std::__cxx11::list<UnitBuf<short>*, std::allocator<UnitBuf<short>*> >&, bool, bool, InputColourSpaceConversion, bool, bool, bool, int) [1]
+                0.01    0.01  207944/1096014     EncCu::xCheckModeSplit(CodingStructure*&, CodingStructure*&, Partitioner&, EncTestMode const&, ModeType, bool&) <cycle 2> [120]
+                0.02    0.04  888060/1096014     IntraSearch::estIntraPredLumaQT(CodingUnit&, Partitioner&, double, bool, int, int, bool, CodingStructure*) [10]
+[258]    0.2    0.03    0.05 1096014         CodingStructure::releaseIntermediateData() [258]
+                0.04    0.00 1096014/4507781     CodingStructure::clearTUs() [184]
+                0.02    0.00 1096014/3760968     CodingStructure::clearPUs() [293]
+-----------------------------------------------
+                0.00    0.00      44/2607906     EncCu::compressCtu(CodingStructure&, UnitArea const&, unsigned int, int const*, int const*) [6]
+                0.00    0.00      88/2607906     DeblockingFilter::deblockingFilterPic(CodingStructure&) [456]
+                0.00    0.00   10219/2607906     CodingStructure::copyStructure(CodingStructure const&, ChannelType, bool, bool) [653]
+                0.00    0.00   12460/2607906     IntraSearch::estIntraPredChromaQT(CodingUnit&, Partitioner&, double) [22]
+                0.00    0.00   25460/2607906     BestEncInfoCache:                0.00    0.00  680931/26927997     CU::isIBC(CodingUnit const&) [360]
+                0.00    0.00 1044767/3232122     CodingStructure::getMotionInfo(Position const&) [768]
+-----------------------------------------------
+                0.00    0.00   25252/3331099     PU::getAffineMergeCand(PredictionUnit const&, AffineMergeCtx&, int) [316]
+                0.00    0.00   81258/3331099     PU::getInterMergeSubPuMvpCand(PredictionUnit const&, MergeCtx&, bool&, int, int) [400]
+                0.08    0.00 3224589/3331099     PU::spanMotionInfo(PredictionUnit&, MergeCtx const&) [187]
+[257]    0.2    0.09    0.00 3331099         AreaBuf<MotionInfo>::fill(MotionInfo const&) [257]
+-----------------------------------------------
+                0.00    0.00      10/1096014     EncGOP::compressGOP(int, int, std::__cxx11::list<Picture*, std::allocator<Picture*> >&, std::__cxx11::list<UnitBuf<short>*, std::allocator<UnitBuf<short>*> >&, bool, bool, InputColourSpaceConversion, bool, bool, bool, int) [1]
+                0.01    0.01  207944/1096014     EncCu::xCheckModeSplit(CodingStructure*&, CodingStructure*&, Partitioner&, EncTestMode const&, ModeType, bool&) <cycle 2> [120]
+                0.02    0.04  888060/1096014     IntraSearch::estIntraPredLumaQT(CodingUnit&, Partitioner&, double, bool, int, int, bool, CodingStructure*) [10]
+[258]    0.2    0.03    0.05 1096014         CodingStructure::releaseIntermediateData() [258]
+                0.04    0.00 1096014/4507781     CodingStructure::clearTUs() [184]
+                0.02    0.00 1096014/3760968     CodingStructure::clearPUs() [293]
+-----------------------------------------------
+                0.00    0.00      44/2607906     EncCu::compressCtu(CodingStructure&, UnitArea const&, unsigned int, int const*, int const*) [6]
+                0.00    0.00      88/2607906     DeblockingFilter::deblockingFilterPic(CodingStructure&) [456]
+                0.00    0.00   10219/2607906     CodingStructure::copyStructure(CodingStructure const&, ChannelType, bool, bool) [653]
+                0.00    0.00   12460/2607906     IntraSearch::estIntraPredChromaQT(CodingUnit&, Partitioner&, double) [22]
+                0.00    0.00   25460/2607906     BestEncInfoCache:tail::_Hashtable_traits<false, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<unsigned int const, std::vector<Position, std::allocator<Position> > >, false>*) [539]
                 0.00    0.00  243930/243930      void std::vector<Position, std::allocator<Position> >::_M_realloc_insert<Position const&>(__gnu_cxx::__normal_iterator<Position*, std::vector<Position, std::allocator<Position> > >, Position const&) [828]
 -----------------------------------------------
                 0.07    0.00 2698484/2698484     EncCu::xCheckRDCostMerge2Nx2N(CodingStructure*&, CodingStructure*&, Partitioner&, EncTestMode const&) [11]
@@ -5842,7 +5880,26 @@ index % time    self  children    called     name
 -----------------------------------------------
                 0.00    0.00 1782328/6943045     DQIntern::RateEstimator::xSetLastCoeffOffset(FracBitsAccess const&, DQIntern::TUParameters const&, TransformUnit const&, ComponentID) [142]
                 0.01    0.00 5160717/6943045     CABACWriter::cbf_comp(CodingStructure const&, bool, CompArea const&, unsigned int, bool, bool) [149]
-[468]    0.0    0.02    0.00 6943045         DeriveCtx::CtxQtCbf(ComponentID, bool, int) [468]
+[468]    0.0    0.02    0.00 6943045         DeriveCtx::CtxQtCb                0.00    0.00  680931/26927997     CU::isIBC(CodingUnit const&) [360]
+                0.00    0.00 1044767/3232122     CodingStructure::getMotionInfo(Position const&) [768]
+-----------------------------------------------
+                0.00    0.00   25252/3331099     PU::getAffineMergeCand(PredictionUnit const&, AffineMergeCtx&, int) [316]
+                0.00    0.00   81258/3331099     PU::getInterMergeSubPuMvpCand(PredictionUnit const&, MergeCtx&, bool&, int, int) [400]
+                0.08    0.00 3224589/3331099     PU::spanMotionInfo(PredictionUnit&, MergeCtx const&) [187]
+[257]    0.2    0.09    0.00 3331099         AreaBuf<MotionInfo>::fill(MotionInfo const&) [257]
+-----------------------------------------------
+                0.00    0.00      10/1096014     EncGOP::compressGOP(int, int, std::__cxx11::list<Picture*, std::allocator<Picture*> >&, std::__cxx11::list<UnitBuf<short>*, std::allocator<UnitBuf<short>*> >&, bool, bool, InputColourSpaceConversion, bool, bool, bool, int) [1]
+                0.01    0.01  207944/1096014     EncCu::xCheckModeSplit(CodingStructure*&, CodingStructure*&, Partitioner&, EncTestMode const&, ModeType, bool&) <cycle 2> [120]
+                0.02    0.04  888060/1096014     IntraSearch::estIntraPredLumaQT(CodingUnit&, Partitioner&, double, bool, int, int, bool, CodingStructure*) [10]
+[258]    0.2    0.03    0.05 1096014         CodingStructure::releaseIntermediateData() [258]
+                0.04    0.00 1096014/4507781     CodingStructure::clearTUs() [184]
+                0.02    0.00 1096014/3760968     CodingStructure::clearPUs() [293]
+-----------------------------------------------
+                0.00    0.00      44/2607906     EncCu::compressCtu(CodingStructure&, UnitArea const&, unsigned int, int const*, int const*) [6]
+                0.00    0.00      88/2607906     DeblockingFilter::deblockingFilterPic(CodingStructure&) [456]
+                0.00    0.00   10219/2607906     CodingStructure::copyStructure(CodingStructure const&, ChannelType, bool, bool) [653]
+                0.00    0.00   12460/2607906     IntraSearch::estIntraPredChromaQT(CodingUnit&, Partitioner&, double) [22]
+                0.00    0.00   25460/2607906     BestEncInfoCache:f(ComponentID, bool, int) [468]
 -----------------------------------------------
                 0.00    0.00    9168/3510990     IntraSearch::xRecurIntraChromaCodingQT(CodingStructure&, Partitioner&, double, PartSplit) [29]
                 0.00    0.00   26820/3510990     IntraSearch::xIntraCodingLumaISP(CodingStructure&, Partitioner&, double) [41]
