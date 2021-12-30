@@ -54,12 +54,16 @@ nameFunctions.reverse()
 
 	
 plt.style.use('ggplot')
-plt.title('Functions')
+plt.figure(figsize=(6.4,3.6))
+
+plt.title('Functions', fontsize=16)
 plt.xlabel('Percentage time')
 
 plt.tight_layout()
 
 plt.barh(nameFunctions, percentageTime)
 
-plt.show()
+
+plt.savefig('plot1.png')
+
 
