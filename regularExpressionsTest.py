@@ -10,6 +10,7 @@ check = pattern.findall(stringList)
 
 namePatternFunction = re.compile(r'.+\(')
 
+
 structBuffer = dict()
 dataList = list()
 
