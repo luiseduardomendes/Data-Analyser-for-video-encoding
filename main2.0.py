@@ -2,6 +2,7 @@ from os import name, system, terminal_size
 from tkinter import *
 from tkinter import font
 from tkinter import ttk
+import os
 
 
 root = Tk()
@@ -95,7 +96,7 @@ class Aplication():
     # FUNCTIONS
 
     def callPlotCreator(self):
-        self.numberOfFrames = int(self.entry_frames.get())
+        '''self.numberOfFrames = int(self.entry_frames.get())
         self.quantizationParameter = int(self.entry_qParameter.get())
         self.configuration = self.vConfig.get()
         
@@ -112,15 +113,20 @@ class Aplication():
         else:
             if self.configuration == "All Intra":
                 #cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_intra_vtm.cfg"
-                cfg = "/VVCSoftware_VTM/cfg/encoder_intra_vtm.cfg"
+                cfg = "cfg/encoder_intra_vtm.cfg"
             elif self.configuration == "Low Delay": 
                 #cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_lowdelay_vtm.cfg"
-                cfg = "/VVCSoftware_VTM/cfg/encoder_lowdelay_vtm.cfg"
+                cfg = "cfg/encoder_lowdelay_vtm.cfg"
             elif self.configuration == "Random Acces":
                 #cfg = "/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/encoder_randomaccess_vtm.cfg"
-                cfg = "/VVCSoftware_VTM/cfg/encoder_randomaccess_vtm.cfg"
+                cfg = "cfg/encoder_randomaccess_vtm.cfg"'''
+            
+        cfg = r"../cfg/encoder_randomaccess_vtm.cfg"
+        self.videoAddres = r'../bin/akiyo_qcif.y4m'
+        self.quantizationParameter = '30'
+        self.numberOfFrames = '10'
             #system(f'"/home/devluis/Área de Trabalho/VVCSoftware_VTM/bin/EncoderAppStatic" -c "{cfg}" -i "{self.videoAddres}" -b out.bin -q {self.quantizationParameter} -f {self.numberOfFrames} -fr 60 -wdt 176 -hgt 144 --Level=2.1')
-            system('/VVCSoftware_VTM/bin/EncoderAppStatic -c "'+ cfg +'" -i "' + self.videoAddres + '" -b out.bin -q ' + str(self.quantizationParameter) + ' -f ' + str(self.numberOfFrames) + ' -fr 60 -wdt 176 -hgt 144 --Level=2.1')
+        system(r'./EncoderAppStatic -c '+ cfg +' -i ' + self.videoAddres + ' -b out.bin -q ' + str(self.quantizationParameter) + ' -f ' + str(self.numberOfFrames) + ' -fr 60 -wdt 176 -hgt 144 --Level=2.1')
             # C:/Users/dudup/OneDrive/Área de Trabalho/VVCSoftware_VTM/bin/akiyo_qcif.y4m
     def placeButtons(self):
         self.configsSelectBox()
