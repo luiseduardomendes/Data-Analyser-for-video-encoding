@@ -14,9 +14,6 @@ class Aplication():
     numberOfFrames = int 
     configuration = str
 
-
-
-
     def __init__(self):
         self.root = root
         self.display()
