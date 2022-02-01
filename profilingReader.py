@@ -1,14 +1,34 @@
 import re
+import string
+from tkinter import font
+from turtle import color
 from matplotlib import pyplot as plt
+import numpy as np
 
 class DataAnalyses:
-    def readData(self):
-        fileName = "akiyo.txt"
+    listParameters = list()
+    listParameters.append('percentageTime')
+    listParameters.append('function')
+    listParameters.append('cumulativeTime')
+    listParameters.append('selfSeconds')
+    listParameters.append('calls')
+    listParameters.append('selfMs/call')
+    listParameters.append('totalMs/call')
+    listParameters.append('class')
+    
 
-        dataFile = open(fileName) 
+    fileName = "akiyo.txt"
+
+    def __init__(self, FN):
+        self.fileName = FN
+        self.__readData()
+        self.__separateDataByclass()
+        self.__setLists()
+
+    def __readData(self):
+        dataFile = open(self.fileName) 
 
         stringList = list()
-        stringList.clear()
 
         for line in dataFile:
             stringList.append(dataFile.readline())
@@ -23,69 +43,53 @@ class DataAnalyses:
             
             check = pattern.findall(stringList[i])
             if len(check) > 0:
-                
                 buffer = check[0][:]
                 
-                try:
-                    structBuffer['percentage time'] = float(buffer[0])
-                except:
-                    structBuffer['percentage time'] = buffer[0]
+                structBuffer['percentageTime'] = float(buffer[0])
+                structBuffer['cumulativeTime'] = float(buffer[1])
+                structBuffer['selfSeconds'] = float(buffer[2])
 
-                try:
-                    structBuffer['cumulative time'] = float(buffer[1])
-                except:
-                    structBuffer['cumulative time'] = buffer[1]
-
-                try:
-                    structBuffer['self seconds'] = float(buffer[2])
-                except:
-                    structBuffer['self seconds'] = buffer[2]
-                
                 try:
                     structBuffer['calls'] = int(buffer[3])
                 except:
                     structBuffer['calls'] = -1
                 
                 try:
-                    structBuffer['self ms/call'] = float(buffer[4])
+                    structBuffer['selfMs/call'] = float(buffer[4])
                 except:
-                    structBuffer['self ms/call'] = -1.00
+                    structBuffer['selfMs/call'] = -1.00
 
                 try:
-                    structBuffer['total ms/call'] = float(buffer[5])
+                    structBuffer['totalMs/call'] = float(buffer[5])
                 except:
-                    structBuffer['total ms/call'] = -1.00
+                    structBuffer['totalMs/call'] = -1.00
 
 
-                structBuffer['className'] = buffer[6]    
-
-                structBuffer['functionName'] = buffer[7]
+                structBuffer['class'] = buffer[6]    
+                structBuffer['function'] = buffer[7]
                     
                 self.dataList.append(structBuffer.copy())
 
-    def separateDataByClassName(self):
+    def __separateDataByclass(self):
         self.dataPerClass = list()
         for i in self.dataList:
-            index = self.returnElementIndex(i['className'])
+            index = self.__returnElementIndex(i['class'])
             if index == -1:
                 self.dataPerClass.append(i)
             else:
-                self.dataPerClass[index]['percentage time'] = self.dataPerClass[index]['percentage time'] + i['percentage time']
-                self.dataPerClass[index]['cumulative time'] = self.dataPerClass[index]['cumulative time'] + i['cumulative time']
-                self.dataPerClass[index]['self seconds'] = self.dataPerClass[index]['self seconds'] + i['self seconds']
-                self.dataPerClass[index]['calls'] = self.dataPerClass[index]['calls'] + i['calls']
-                self.dataPerClass[index]['self ms/call'] = self.dataPerClass[index]['self ms/call'] + i['self ms/call']
-                self.dataPerClass[index]['total ms/call'] = self.dataPerClass[index]['total ms/call'] + i['total ms/call']
-            
-    def isClassInList(self, className):
+                for j in self.listParameters:
+                    if j != 'function' and j != 'class':
+                        self.dataPerClass[index][j] = self.dataPerClass[index][j] + i[j]
+                    
+    def __isClassInList(self, className):
         for i in self.dataPerClass:
             if i['nameClass'] == className:
                 return True
         return False
 
-    def returnElementIndex(self, className):
+    def __returnElementIndex(self, className):
         for i in range(0, len(self.dataPerClass)):
-            if self.dataPerClass[i]['className'] == className:
+            if self.dataPerClass[i]['class'] == className:
                 return i
         return -1
         
@@ -93,76 +97,101 @@ class DataAnalyses:
         print(self.dataPerClass[self.returnElementIndex(text)])
 
     def displayPercentageTime(self):
-        for i in range(0,10):
+        for i in range(0, len(self.dataPerClass)):
             classes = self.dataPerClass[i]
-            print(f"Nome da classe:.........{classes['className']}")
-            print(f"Tempo(%)................{classes['percentage time']:.2f}")
-            print(f"Tempo(sec)..............{classes['cumulative time']:.2f}")
-            print(f"Tempo(self).............{classes['self seconds']:.2f}")
+            print('-*'*40)
+            print(f"Nome da classe:.........{classes['class']}")
+            print(f"Tempo(%)................{classes['percentageTime']:.2f}")
+            print(f"Tempo(sec)..............{classes['cumulativeTime']:.2f}")
+            print(f"Tempo(self).............{classes['selfSeconds']:.2f}")
             print(f"Chamadas................{classes['calls']}")
-            print(f"Tempo por chamada.......{classes['self ms/call']:.2f}")
-            print(f"Tempo por chamada.......{classes['total ms/call']:.2f}")
-            print(f"Função mais custosa.....{classes['functionName']}")
+            print(f"Tempo por chamada.......{classes['selfMs/call']:.2f}")
+            print(f"Tempo por chamada.......{classes['totalMs/call']:.2f}")
+            print(f"Função mais custosa.....{classes['function']}")
             print('-*'*40)
             print()
 
+    def __setLists(self):
+        self.dataListsPerClassForPlotter = dict() 
+        self.dataListsPerFunctionForPlotter = dict() 
 
-    def initPlotter(self):
+        for i in self.listParameters:
+            self.dataListsPerClassForPlotter[i] = list()
+            self.dataListsPerFunctionForPlotter[i] = list()
 
-        dataListsforPlotter = dict()  
-        dataListsforPlotter['percentage time'] = list()
-        dataListsforPlotter['cumulative time'] = list()
-        dataListsforPlotter['self seconds'] = list()
-        dataListsforPlotter['calls'] = list()
-        dataListsforPlotter['self ms/call'] = list()
-        dataListsforPlotter['total ms/call'] = list()
-        dataListsforPlotter['functionName'] = list()
-        dataListsforPlotter['className'] = list()
+        for i in range(0, len(self.dataPerClass)):
+            for j in self.listParameters:
+                self.dataListsPerClassForPlotter[j].append(self.dataPerClass[i][j])
+            for j in self.listParameters:
+                self.dataListsPerFunctionForPlotter[j].append(self.dataList[i][j])
+        for i in self.listParameters:
+            self.dataListsPerFunctionForPlotter[i].reverse()
+        # TODO: implement quick sort algorythm 
 
-        for i in range(0,10):
-            dataListsforPlotter['percentage time'].append(self.dataList[i]['percentage time'])
-            dataListsforPlotter['functionName'].append(self.dataList[i]['functionName'])
-            dataListsforPlotter['cumulative time'].append(self.dataList[i]['cumulative time'])
-            dataListsforPlotter['self seconds'].append(self.dataList[i]['self seconds'])
-            dataListsforPlotter['calls'].append(self.dataList[i]['calls'])
-            dataListsforPlotter['self ms/call'].append(self.dataList[i]['self ms/call'])
-            dataListsforPlotter['total ms/call'].append(self.dataList[i]['total ms/call'])
-            dataListsforPlotter['className'].append(self.dataList[i]['className'])
-            
-        
-        dataListsforPlotter['percentage time'].reverse()
-        dataListsforPlotter['functionName'].reverse()
-        dataListsforPlotter['cumulative time'].reverse()
-        dataListsforPlotter['self seconds'].reverse()
-        dataListsforPlotter['calls'].reverse()
-        dataListsforPlotter['self ms/call'].reverse()
-        dataListsforPlotter['total ms/call'].reverse()
-        dataListsforPlotter['className'].reverse()
-        
-        print(dataListsforPlotter['functionName'])
+        trade = True
+        while trade:
+            trade = False
+            k = len(self.dataListsPerClassForPlotter['percentageTime'])
+            for i in range(0,k-1):
+                if self.dataListsPerClassForPlotter['percentageTime'][i] > self.dataListsPerClassForPlotter['percentageTime'][i+1]:
+                    for j in self.listParameters:
+                        buffer = self.dataListsPerClassForPlotter[j][i]
+                        self.dataListsPerClassForPlotter[j][i] = self.dataListsPerClassForPlotter[j][i+1]
+                        self.dataListsPerClassForPlotter[j][i+1] = buffer
+                    
+                    trade = True
 
+class Plotter:
+    def __init__(self):
+        pass
+
+    def insertLists(self, dataListX, dataListXLabel, dataListY, dataListYLabel):
+        self.plotterListX = dataListX
+        self.plotterListY = dataListY
+        self.plotterListXName = dataListXLabel
+        self.plotterListYName = dataListYLabel
+
+    def setOutputFileName(self, outputFileName):
+        self.fileName = outputFileName
+
+    def setGraphTitle(self, title):
+        self.title = title
+
+    def plotBarhGraph(self):
         plt.style.use('ggplot')
         plt.figure(figsize=(12.8, 7.2))
 
-        plt.title('Functions', fontsize=16)
-        plt.xlabel('Percentage time')        
-        
-        yticks = [i for i in dataListsforPlotter['functionName']]
+        plt.title(self.title, fontsize=24)
+
+        plt.xlabel(self.plotterListXName) 
+        plt.ylabel(self.plotterListYName)    
 
         plt.tight_layout()
 
-        plt.barh(yticks, dataListsforPlotter['percentage time'])
+        plt.barh(self.plotterListX, self.plotterListY, color='#acbccc')
 
-        plt.subplots_adjust(left=0.25)
+        plt.subplots_adjust(left=0.2)
 
-        plt.savefig('plot.png')        
+        patternNameFile = re.compile('(.+)[\.]txt')
+        textName = patternNameFile.findall(self.fileName)[0]
+
+        for ch in self.plotterListXName:
+            if ch == ' ':
+                ch = '_'
+
+        for ch in self.plotterListYName:
+            if ch == ' ':
+                ch = '_'
+        
+        plt.savefig(f'plot_{self.plotterListXName}_by_{self.plotterListYName}_{textName}.png')        
 
         plt.show()
 
 
-d = DataAnalyses()
+d = DataAnalyses("akiyo.txt")
 
-d.readData()
-d.separateDataByClassName()
-d.displayPercentageTime()
-d.initPlotter()
+p = Plotter()
+p.insertLists(d.dataListsPerFunctionForPlotter['function'], "Porcentagem de tempo", d.dataListsPerFunctionForPlotter['percentageTime'], "Função")
+p.setOutputFileName("akiyo.txt")
+p.setGraphTitle("Porcentagem de tempo de execução por função")
+p.plotBarhGraph()
