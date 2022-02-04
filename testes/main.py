@@ -1,4 +1,4 @@
-import imp
+
 from gprof_out_reader import GprofOutReader
 from plotterData import Plotter
 from terminalPlotter import TerminalBarhPlotter
