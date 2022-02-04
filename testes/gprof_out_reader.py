@@ -97,7 +97,18 @@ class GprofOutReader:
         'class'
     ]
 
-    def __init__(self, FN):
+    __parametersDict__ = {
+        'percentageTime' : 'Execution Time',
+        'function' : 'Function',
+        'cumulativeTime' : 'Cumulative Time',
+        'selfSeconds' : 'Self Seconds',
+        'calls' : 'Calls',
+        'selfMs/call' : 'Self ms/call',
+        'totalMs/call' : 'Total ms/call',
+        'class' : 'Class'
+    }
+
+    def __init__(self, FN : str):
         self.fileName = FN
         self.__readData()
         self.__separateDataByclass()
@@ -106,21 +117,19 @@ class GprofOutReader:
     def __readData(self):
         dataFile = open(self.fileName) 
 
-        stringList = list()
-
+        stringList = []
 
         for line in dataFile:
             stringList.append(dataFile.readline())
 
         pattern = re.compile(r'([\d]+\.[\d]+)[ ]+([\d]+\.[\d]+)[ ]+([\d]+\.[\d]+|[ ]+)[ ]+([\d]+|[ ]+)[ ]+([\d]+\.[\d]+|[ ]+)[ ]+([\d]+\.[\d]+|[ ]+)[ ]+(.+)::(.+[\w])[\(](.+)')
 
-        structBuffer = dict()
-        self.__dataList = list()
+        structBuffer = {}
+        self.__dataList = []
         self.__dataList.clear()
 
-        for i in range(0,150):
-            
-            check = pattern.findall(stringList[i])
+        for i in stringList[:150]:
+            check = pattern.findall(i)
             if len(check) > 0:
                 buffer = check[0][:]
                 
@@ -159,16 +168,10 @@ class GprofOutReader:
                 for j in self.listParameters:
                     if j != 'function' and j != 'class':
                         self.dataPerClass[index][j] = self.dataPerClass[index][j] + i[j]
-                    
-    def __isClassInList(self, className):
-        for i in self.dataPerClass:
-            if i['nameClass'] == className:
-                return True
-        return False
 
     def __returnElementIndex(self, className):
-        for i in range(0, len(self.dataPerClass)):
-            if self.dataPerClass[i]['class'] == className:
+        for i, classes in enumerate(self.dataPerClass):
+            if classes['class'] == className:
                 return i
         return -1
         
@@ -176,19 +179,17 @@ class GprofOutReader:
         print(self.dataPerClass[self.returnElementIndex(text)])
 
     def displayPercentageTime(self):
-        for i in range(0, len(self.dataPerClass)):
-            classes = self.dataPerClass[i]
+        
+        for classes in self.dataPerClass:
             print('-*'*40)
-            print(f"Nome da classe:.........{classes['class']}")
-            print(f"Tempo(%)................{classes['percentageTime']:.2f}")
-            print(f"Tempo(sec)..............{classes['cumulativeTime']:.2f}")
-            print(f"Tempo(self).............{classes['selfSeconds']:.2f}")
-            print(f"Chamadas................{classes['calls']}")
-            print(f"Tempo por chamada.......{classes['selfMs/call']:.2f}")
-            print(f"Tempo por chamada.......{classes['totalMs/call']:.2f}")
-            print(f"Função mais custosa.....{classes['function']}")
-            print('-*'*40)
-            print()
+            for param in self.__parametersDict__:
+                if type(classes[param]) == float:
+                    stringLine = f'{classes[param]:.2f}'
+                else: 
+                    stringLine = f'{classes[param]}'
+                print(f'{param:20}{stringLine}')
+            print('-*'*40, end='\n\n')
+            
 
     def __setLists(self):
         self.dataListsPerClassForPlotter = dict() 

@@ -3,20 +3,22 @@ from os import path, system
 from datetime import datetime
 
 class Plotter:
-    __parametersInGraph = dict()
-    __parametersInGraph['percentageTime'] = 'Execution time (%)'
-    __parametersInGraph['function'] = 'Function'
-    __parametersInGraph['cumulativeTime'] = 'Cumulative Time'
-    __parametersInGraph['selfSeconds'] = 'Self Seconds'
-    __parametersInGraph['Calls'] = 'Calls'
-    __parametersInGraph['selfMs/call'] = 'Self milliseconds/call'
-    __parametersInGraph['totalMs/call'] = 'total milliseconds/call'
-    __parametersInGraph['class'] = 'Class'
+    __parametersDict__ = {
+        'percentageTime' : 'Execution Time',
+        'function' : 'Function',
+        'cumulativeTime' : 'Cumulative Time',
+        'selfSeconds' : 'Self Seconds',
+        'calls' : 'Calls',
+        'selfMs/call' : 'Self ms/call',
+        'totalMs/call' : 'Total ms/call',
+        'class' : 'Class'
+    }
 
-    __cfgsInGraph = dict()
-    __cfgsInGraph['all_intra'] = 'All Intra'
-    __cfgsInGraph['low_delay'] = 'Low Delay'
-    __cfgsInGraph['random_access'] = 'Random Access'
+    __cfgsInGraph = {
+        'all_intra' : 'All Intra',
+        'low_delay' : 'Low Delay',
+        'random_access' : 'Random Access'
+    }
     
     def __init__(self): 
         pass

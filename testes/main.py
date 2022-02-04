@@ -1,9 +1,9 @@
-
 from gprof_out_reader import GprofOutReader
-from plotterData import Plotter
-from terminalPlotter import TerminalBarhPlotter
+
+
 
 d = GprofOutReader("akiyo.txt")
+d.displayPercentageTime()
 
 '''p = Plotter()
 p.insertLists(d.dataListsPerFunctionForPlotter['function'], 'function',
@@ -11,7 +11,7 @@ p.insertLists(d.dataListsPerFunctionForPlotter['function'], 'function',
 p.setOutputFileName("akiyo", '30', 'all_intra')
 p.plotBarhGraph()'''
 
-b = TerminalBarhPlotter()
+'''b = TerminalBarhPlotter()
 b.barh( xValues=d.dataListsPerFunctionForPlotter['percentageTime'],
         yValues=d.dataListsPerFunctionForPlotter['function']) 
-b.show()
+b.show()'''
