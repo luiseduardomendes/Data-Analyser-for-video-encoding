@@ -2,17 +2,30 @@ import re
 import pandas as pd
 import os
 
+
+
 class GprofToCSV: 
+    parameters_gprof = (
+        'percentageTime',
+        'cumulativeTime',
+        'selfSeconds',
+        'calls',
+        'selfMs/call',
+        'totalMs/call',
+        'function',
+        'class'
+    )
+
     def set_file_path(self, txt : str = 'akiyo.txt'):
         self.file_path = txt
         self.file_output = f'{self.file_path.split(sep=".txt")[0]}.csv'
 
     def set_file_output(self, txt : str):
-        self.file_output = f'{txt.csv}'
+        self.file_output = f'{txt}'
 
     def convert_file(self):
         dataFile = open(self.file_path) 
-        dataOut = open(self.file_output) 
+        dataOut = open(self.file_output, 'w') 
         stringList = []
 
         for line in dataFile:
@@ -22,16 +35,9 @@ class GprofToCSV:
         ptrn_cls_name = re.compile(r'(\w+)[::]')
         ptrn_fnc_name = re.compile(r'[::](\w+)[\(]')
 
-        structBuffer = {
-            'percentageTime' : [],
-            'cumulativeTime' : [],
-            'selfSeconds' : [],
-            'calls' : [],
-            'selfMs/call' : [],
-            'totalMs/call' : [],
-            'function' : [],
-            'class' : []
-        }
+        structBuffer = {}
+        for param in self.parameters_gprof:
+            structBuffer[param] = []
         
 
         for line in stringList:
@@ -87,11 +93,21 @@ class GprofToCSV:
 # TODO: function to set the dict from the csv file
     
 class GprofOutCSVReader:
+    parameters_gprof = (
+        'percentageTime',
+        'cumulativeTime',
+        'selfSeconds',
+        'calls',
+        'selfMs/call',
+        'totalMs/call',
+        'function',
+        'class'
+    )
     
     def functions_dict(self) -> dict():
         # turn the csv data by functions into a dict
         self.data_frame = pd.read_csv(self.file_path)
-        self.data_by_function = self.data_frame.to_dict
+        self.data_by_function = self.data_frame.to_dict()
         return self.data_by_function
 
     def set_file_path(self, file : str = 'akiyo.csv'):
@@ -104,9 +120,42 @@ class GprofOutCSVReader:
         else:
             print('Error - file not found')
 
-    def __split_by_class__(self):
-        for func, i in self.data_by_function['class']:
-            func
+    # auxiliar function to find the first occurrency of a name
+    def __return_element_id__(self, class_name : str) -> int:
+        for i, j in enumerate(self.dict_data_agl['class']):
+            if class_name == j:
+                return i
+            
+        return -1
+    
+    def split_by_function(self):
+
+        __dict_data_buffer__ = self.data_frame.to_dict()
+
+        self.dict_data = {}
+        for param in self.parameters_gprof:
+            self.dict_data[param] = []
+
+        self.dict_data_agl = {}
+        for param in self.parameters_gprof:
+            self.dict_data_agl[param] = []
+
+        # transform into dict of lists
+        for i in __dict_data_buffer__.values():
+            print(i)
+
+            for j in i[1].values():
+                self.dict_data[i[0]].append(j)
+
+        # sum of elements with same name
+        for i in range (0, len(self.dict_data['function'])):
+            if self.dict_data['class'][i] in self.dict_data_agl['class']:
+                for j in self.dict_data_agl.items():
+                    if type(j[1][0]) != str:
+                        self.dict_data_agl[j[0]][self.__return_element_id__(dict_data['class'][i])] += self.dict_data[j[0]][i]
+            else:
+                for j in self.dict_data_agl.keys():
+                    self.dict_data_agl[j].append(self.dict_data[j][i])
 
     
     
