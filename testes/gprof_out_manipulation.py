@@ -1,6 +1,9 @@
+import enum
 import re
 import pandas as pd
 import os
+
+from pytest import param
 
 
 
@@ -127,10 +130,33 @@ class GprofOutCSVReader:
                 return i
             
         return -1
-    
-    def split_by_function(self):
 
-        __dict_data_buffer__ = self.data_frame.to_dict()
+    def split_by_function(self):
+        __buffer__ = self.data_frame.to_dict();
+
+        list_data = []
+        __dict_buffer__ = {}
+        for element in range(0, len(__buffer__['Unnamed: 0'])):
+            for i, param in enumerate(__buffer__.keys()):
+                __dict_buffer__[param] = __buffer__[param][element]
+            print(__dict_buffer__)
+            list_data.append(__dict_buffer__.copy())
+        
+        for i in list_data:
+            print(i)
+
+        
+        
+        
+
+        #for i, count in enumerate(__buffer__.items()):
+            #list_data[i[0]]
+    
+    """def split_by_function(self):
+
+        __dict_data_buffer__ = self.data_by_function
+
+        #print(__dict_data_buffer__)
 
         self.dict_data = {}
         for param in self.parameters_gprof:
@@ -141,11 +167,12 @@ class GprofOutCSVReader:
             self.dict_data_agl[param] = []
 
         # transform into dict of lists
-        for i in __dict_data_buffer__.values():
-            print(i)
-
-            for j in i[1].values():
-                self.dict_data[i[0]].append(j)
+        for i in __dict_data_buffer__.items():
+            for j in i[1]:
+                if i[0] != 'Unnamed: 0':
+                    self.dict_data[i[0]].append(j)
+        
+        
 
         # sum of elements with same name
         for i in range (0, len(self.dict_data['function'])):
@@ -156,8 +183,7 @@ class GprofOutCSVReader:
             else:
                 for j in self.dict_data_agl.keys():
                     self.dict_data_agl[j].append(self.dict_data[j][i])
-
-    
+"""
     
         
 
@@ -296,3 +322,4 @@ class GprofOutReader:
                         self.dataListsPerClassForPlotter[j][i+1] = buffer
                     
                     trade = True
+

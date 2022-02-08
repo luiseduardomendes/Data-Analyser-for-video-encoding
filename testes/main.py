@@ -10,7 +10,8 @@ gp_reader = gp.GprofOutCSVReader()
 gp_reader.set_file_path('akiyo.csv')
 gp_reader.functions_dict()
 gp_reader.split_by_function()
-print(gp_reader.functions_dict())
+#print(i for i in gp_reader.functions_dict().values())
+#print(gp_reader.functions_dict())
 
 
 
