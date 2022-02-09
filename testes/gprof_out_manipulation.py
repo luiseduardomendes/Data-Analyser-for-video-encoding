@@ -107,11 +107,9 @@ class GprofOutCSVReader:
         'class'
     )
     
-    def functions_dict(self) -> dict():
+    def functions_dict(self):
         # turn the csv data by functions into a dict
-        self.data_frame = pd.read_csv(self.file_path)
-        self.data_by_function = self.data_frame.to_dict()
-        return self.data_by_function
+        self.data_frame = pd.read_csv(self.file_path)        
 
     def set_file_path(self, file : str = 'akiyo.csv'):
         # check if the file is valid 
@@ -124,69 +122,60 @@ class GprofOutCSVReader:
             print('Error - file not found')
 
     # auxiliar function to find the first occurrency of a name
-    def __return_element_id__(self, class_name : str) -> int:
-        for i, j in enumerate(self.dict_data_agl['class']):
-            if class_name == j:
+    def __return_element_id__(self, element, d_list : list, key_word : str) -> int:
+        for i, j in enumerate(d_list):
+            if element == j[key_word]:
                 return i
             
         return -1
 
     def split_by_function(self):
         __buffer__ = self.data_frame.to_dict();
-
-        list_data = []
+        __list_data__ = []
         __dict_buffer__ = {}
+
         for element in range(0, len(__buffer__['Unnamed: 0'])):
             for i, param in enumerate(__buffer__.keys()):
                 __dict_buffer__[param] = __buffer__[param][element]
-            print(__dict_buffer__)
-            list_data.append(__dict_buffer__.copy())
-        
-        for i in list_data:
-            print(i)
+            __list_data__.append(__dict_buffer__.copy())
 
+        print(__list_data__)
         
         
-        
+        self.list_data_by_class = []
+        self.list_data_by_funct = __list_data__[:]
 
-        #for i, count in enumerate(__buffer__.items()):
-            #list_data[i[0]]
-    
-    """def split_by_function(self):
-
-        __dict_data_buffer__ = self.data_by_function
-
-        #print(__dict_data_buffer__)
-
-        self.dict_data = {}
-        for param in self.parameters_gprof:
-            self.dict_data[param] = []
-
-        self.dict_data_agl = {}
-        for param in self.parameters_gprof:
-            self.dict_data_agl[param] = []
-
-        # transform into dict of lists
-        for i in __dict_data_buffer__.items():
-            for j in i[1]:
-                if i[0] != 'Unnamed: 0':
-                    self.dict_data[i[0]].append(j)
-        
-        
-
-        # sum of elements with same name
-        for i in range (0, len(self.dict_data['function'])):
-            if self.dict_data['class'][i] in self.dict_data_agl['class']:
-                for j in self.dict_data_agl.items():
-                    if type(j[1][0]) != str:
-                        self.dict_data_agl[j[0]][self.__return_element_id__(dict_data['class'][i])] += self.dict_data[j[0]][i]
+        for i in __list_data__:
+            index = self.__return_element_id__(i['class'], self.list_data_by_class, 'class')
+            if index == -1:
+                self.list_data_by_class.append(i)
             else:
-                for j in self.dict_data_agl.keys():
-                    self.dict_data_agl[j].append(self.dict_data[j][i])
-"""
+                for j in self.parameters_gprof:
+                    if type(self.list_data_by_class[index][j]) != str:
+                        self.list_data_by_class[index][j] += i[j]
+
+        self.dict_data_by_class = {}
+
+        for parameter in self.parameters_gprof:
+            self.dict_data_by_class[parameter] = []
+
+        for element in self.list_data_by_class:
+            for parameter in self.parameters_gprof:
+                self.dict_data_by_class[parameter].append(element[parameter])
+
+        self.dict_data_by_funct = {}
+
+        for parameter in self.parameters_gprof:
+            self.dict_data_by_funct[parameter] = []
+
+        for element in self.list_data_by_funct:
+            for parameter in self.parameters_gprof:
+                self.dict_data_by_funct[parameter].append(element[parameter])
+
+
     
         
-
+'''
 class GprofOutReader:
     listParameters = [
         'percentageTime',
@@ -323,3 +312,4 @@ class GprofOutReader:
                     
                     trade = True
 
+'''

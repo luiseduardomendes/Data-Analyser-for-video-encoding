@@ -1,7 +1,5 @@
 import os
 
-from matplotlib.cbook import maxdict
-
 class TerminalBarhPlotter:
     __terminalSize__ = int()
     __dataYaxis__ = list() # names = string
