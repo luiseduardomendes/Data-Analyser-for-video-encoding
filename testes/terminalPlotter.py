@@ -24,7 +24,10 @@ class TerminalBarhPlotter:
 
     def __setSize__(self):
         maxValue = max(self.__dataXaxis__)
-        self.__proportion__ = (self.__terminalSizeX - 35) / maxValue
+        if maxValue != 0:
+            self.__proportion__ = (self.__terminalSizeX - 35) / maxValue
+        else:
+            self.__proportion__ = 0
         
     def show(self):
         for i in range(0, len(self.__dataYaxis__)):

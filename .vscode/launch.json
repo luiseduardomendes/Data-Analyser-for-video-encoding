@@ -9,9 +9,9 @@
         ""
       ],
       "stopAtEntry": false,
-      "cwd": "c:/Users/dudup/OneDrive/Área de Trabalho/VVC/Data-Analyser-for-video-encoding",
+      "cwd": "c:/Users/dudup/OneDrive/Área de Trabalho/VVC/Data-Analyser-for-video-encoding/testes",
       "environment": [],
-      "program": "c:/Users/dudup/OneDrive/Área de Trabalho/VVC/Data-Analyser-for-video-encoding/build/Debug/outDebug",
+      "program": "c:/Users/dudup/OneDrive/Área de Trabalho/VVC/Data-Analyser-for-video-encoding/testes/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
       "miDebuggerPath": "C:/MinGW/bin/gdb.exe",
