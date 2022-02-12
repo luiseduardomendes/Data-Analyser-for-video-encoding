@@ -15,10 +15,8 @@ class TerminalBarhPlotter:
         self.__terminalSizeY = self.__terminalSize__.lines
         
 
-    def barh(self, xValues, yValues):
-        #if(type(xValues) == list()):
+    def barh(self, xValues: list, yValues: list):
         self.__dataXaxis__ = xValues
-        #if(type(yValues) == list()):
         self.__dataYaxis__ = yValues
         self.__setSize__()
 

@@ -1,6 +1,8 @@
 
+from datetime import date
 import re
 import os
+import readline
 import pandas as pd
 
 class GprofToCSV: 
@@ -15,8 +17,18 @@ class GprofToCSV:
         'class'
     )
 
-    def set_file_path(self, txt : str = 'akiyo.txt'):
-        self.file_path = txt
+    def __init__(self, file_path: str, path_output: str = 'default') -> None:
+        self.set_file_path(file_path)
+        if path_output == 'default':
+            self.file_output = f'{self.file_path.split(sep=".txt")[0]}.csv'    
+        else:
+            self.file_output = path_output
+
+        self.read_gprof_out()
+        self.convert_file()
+        
+    def set_file_path(self, file_path : str):
+        self.file_path = file_path
         self.file_output = f'{self.file_path.split(sep=".txt")[0]}.csv'
 
     def set_file_output(self, txt : str):
@@ -26,76 +38,52 @@ class GprofToCSV:
         return self.file_output
 
     def convert_file(self):
-        dataFile = open(self.file_path) 
         dataOut = open(self.file_output, 'w') 
+        dataOut.write(self.data_frame)
+        dataOut.close()
 
-        pattern = re.compile(r'(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+|\s+)\s+(\d+|\s+)\s+(\d+\.\d+|\s+)\s+(\d+\.\d+|\s+)\s+(.+)')
-        ptrn_cls_name = re.compile(r'(\w+)[::]')
-        ptrn_fnc_name = re.compile(r'[::](\w+)[\(]')
+    def read_gprof_out(self):           
 
+        pattern = re.compile(r'(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+|\s+)\s+(\d+|\s+)\s+(\d+\.\d+|\s+)\s+(\d+\.\d+|\s+)\s+(.+)()')
+
+        # pattern of end of file, after this, the data represented is granularity
+        pattern_end = re.compile(r' %         the percentage of the total running time of the')
+            
         structBuffer = {}
         for param in self.parameters_gprof:
             structBuffer[param] = []
 
-        for index in dataFile:
+        dataFile = open(self.file_path) 
+        
+        for k in dataFile:
             line = dataFile.readline()
-
-            pattern_end = re.compile(r' %         the percentage of the total running time of the')
             
             ptrn_found = pattern_end.findall(line)
-
-            if len(ptrn_found) != 0:
+            
+            if len(ptrn_found) > 0:
                 break
-
-
+                
             check = pattern.findall(line)
+            
+
             if len(check) != 0:
                 buffer = check[0][:]
-                        
-                structBuffer['percentageTime'].append(float(buffer[0]))
-                structBuffer['cumulativeTime'].append(float(buffer[1]))
-                try:
-                    structBuffer['selfSeconds'].append(float(buffer[2]))
-                except:
-                    structBuffer['selfSeconds'].append(-1)
-
-                try:
-                    structBuffer['calls'].append(int(buffer[3]))
-                except:
-                    structBuffer['calls'].append(-1)
-                
-                try:
-                    structBuffer['selfMs/call'].append(float(buffer[4]))
-                except:
-                    structBuffer['selfMs/call'].append(-1.00)
-
-                try:
-                    structBuffer['totalMs/call'].append(float(buffer[5]))
-                except:
-                    structBuffer['totalMs/call'].append(-1.00)
-
-                className = ptrn_cls_name.findall(buffer[6])
-                funcName = ptrn_fnc_name.findall(buffer[6])
-                
-                if len(className) > 0: 
-                    structBuffer['class'].append(className[0])
-                    if len(funcName) != 0: 
-                        structBuffer['function'].append(funcName[0])
+                for i, parameter in enumerate(self.parameters_gprof):
+                    if buffer[i] == '':
+                        structBuffer[parameter].append(0)
                     else:
-                        structBuffer['function'].append(re.compile(r'([\w|\s]+)').findall(buffer[6])[0])
-                else:
-                    structBuffer['class'].append('void_class')
-                    if len(funcName) != 0: 
-                        structBuffer['function'].append(funcName[0])
-                    else:
-                        structBuffer['function'].append(re.compile(r'([\w|\s]+)').findall(buffer[6])[0])
-                
-        data_frame = pd.DataFrame.from_dict(structBuffer).to_csv(index=False, line_terminator='\n')
-        dataOut.write(data_frame)
-        dataFile.close()
-        dataOut.close()
+                        try:
+                            structBuffer[parameter].append(float(buffer[i]))
+                        except:
+                            structBuffer[parameter].append(buffer[i])
+                class_name = buffer[6].split(sep='::')[0]
+                funct_name = class_name.split(sep='(')[0]
+                structBuffer['class'][-1] = class_name
+                structBuffer['function'][-1] = funct_name
+
         
-
+        self.data_frame = pd.DataFrame.from_dict(structBuffer).to_csv(index=False, line_terminator='\n')
+        dataFile.close()
 
 class GprofOutCSVReader:
     parameters_gprof = (
