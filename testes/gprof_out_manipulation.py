@@ -1,8 +1,6 @@
 
-from datetime import date
 import re
 import os
-import readline
 import pandas as pd
 
 class GprofToCSV: 
@@ -76,8 +74,11 @@ class GprofToCSV:
                             structBuffer[parameter].append(float(buffer[i]))
                         except:
                             structBuffer[parameter].append(buffer[i])
-                class_name = buffer[6].split(sep='::')[0]
-                funct_name = class_name.split(sep='(')[0]
+                if '::' in buffer[6]:
+                    class_name = buffer[6].split(sep='::')[0]
+                else:
+                    class_name = 'no_class'
+                funct_name = buffer[6].split(sep='(')[0]
                 structBuffer['class'][-1] = class_name
                 structBuffer['function'][-1] = funct_name
 
@@ -96,6 +97,14 @@ class GprofOutCSVReader:
         'function',
         'class'
     )
+
+    file_path_set = False
+
+    def __init__(self, file_path: str) -> None:
+        self.set_file_path(file_path)
+        if self.file_path_set:
+            self.functions_dict()
+            self.split_by_function()
     
     def functions_dict(self):
         # turn the csv data by functions into a dict
@@ -106,6 +115,7 @@ class GprofOutCSVReader:
         if os.path.isfile(file):
             if len(re.compile(r'\.csv$').findall(file)) > 0:
                 self.file_path = file
+                self.file_path_set = True
             else:
                 print('Error - file is not a csv file')
         else:
@@ -131,7 +141,7 @@ class GprofOutCSVReader:
                     list_data[index + 1] = buffer
                     trade = True
 
-    def set_dict_of_lists_to_plot_data(self):
+    def __set_dict_of_lists_to_plot_data__(self):
 
         self.dict_data_by_class = {}
 
@@ -151,7 +161,7 @@ class GprofOutCSVReader:
             for parameter in self.parameters_gprof:
                 self.dict_data_by_funct[parameter].append(element[parameter])
 
-    def sum_numeric_elements_with_same_name(self, data: list, parameter: str) -> list:
+    def __sum_numeric_elements_with_same_name__(self, data: list, parameter: str) -> list:
         new_list = []
         for i, element in enumerate(data):
             index = self.__return_element_id__(element[parameter], new_list, parameter)
@@ -167,7 +177,7 @@ class GprofOutCSVReader:
 
         return new_list
 
-    def to_list_of_struct (self, __buffer__: dict) -> list:
+    def __to_list_of_struct__(self, __buffer__: dict) -> list:
         new_list = []
         __dict_buffer__ = {}
 
@@ -181,14 +191,14 @@ class GprofOutCSVReader:
 
     def split_by_function(self):
 
-        __list_data__ = self.to_list_of_struct(self.data_frame.to_dict())        
+        __list_data__ = self.__to_list_of_struct__(self.data_frame.to_dict())        
 
         self.list_data_by_class = []
         self.list_data_by_funct = __list_data__[:]
 
         # sum the elements with same class
-        self.list_data_by_class = self.sum_numeric_elements_with_same_name(__list_data__, 'class')
+        self.list_data_by_class = self.__sum_numeric_elements_with_same_name__(__list_data__, 'class')
 
         self.__sort_list_of_dicts__('percentageTime', self.list_data_by_class)
 
-        self.set_dict_of_lists_to_plot_data()
+        self.__set_dict_of_lists_to_plot_data__()
