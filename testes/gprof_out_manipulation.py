@@ -116,7 +116,6 @@ class GprofOutCSVReader:
     def __return_element_id__(self, element, d_list : list, key_word : str) -> int:
         for i, j in enumerate(d_list):
             if element == j[key_word]:
-                
                 return i
             
         return -1
@@ -132,35 +131,7 @@ class GprofOutCSVReader:
                     list_data[index + 1] = buffer
                     trade = True
 
-
-
-    def split_by_function(self):
-        __buffer__ = self.data_frame.to_dict();
-        __list_data__ = []
-        __dict_buffer__ = {}
-
-        for element in range(0, len(__buffer__['function'])):
-            for i, param in enumerate(__buffer__.keys()):
-                __dict_buffer__[param] = __buffer__[param][element]
-            __list_data__.append(__dict_buffer__.copy())
-
-        self.list_data_by_class = []
-        self.list_data_by_funct = __list_data__[:]
-
-        for i, element in enumerate(__list_data__):
-
-            index = self.__return_element_id__(element['class'], self.list_data_by_class, 'class')
-            # index == -1 if the class is not in the list yet
-            
-            if index == -1:
-                self.list_data_by_class.append(element.copy())
-            else:
-                # sums the content that is already in the dict with the new element
-                for parameter in self.parameters_gprof:
-                    if type(self.list_data_by_class[index][parameter]) != str:
-                        self.list_data_by_class[index][parameter] += element[parameter]
-
-        self.__sort_list_of_dicts__('percentageTime', self.list_data_by_class)
+    def set_dict_of_lists_to_plot_data(self):
 
         self.dict_data_by_class = {}
 
@@ -179,3 +150,45 @@ class GprofOutCSVReader:
         for element in self.list_data_by_funct:
             for parameter in self.parameters_gprof:
                 self.dict_data_by_funct[parameter].append(element[parameter])
+
+    def sum_numeric_elements_with_same_name(self, data: list, parameter: str) -> list:
+        new_list = []
+        for i, element in enumerate(data):
+            index = self.__return_element_id__(element[parameter], new_list, parameter)
+            
+            # index == -1 if the class is not in the list yet
+            if index == -1:
+                new_list.append(element.copy())
+            else:
+                # sums the content that is already in the dict with the new element
+                for parameter in element.keys():
+                    if type(new_list[index][parameter]) != str:
+                        new_list[index][parameter] += element[parameter]
+
+        return new_list
+
+    def to_list_of_struct (self, __buffer__: dict) -> list:
+        new_list = []
+        __dict_buffer__ = {}
+
+        for element in range(0, len(__buffer__['function'])):
+            for i, param in enumerate(__buffer__.keys()):
+                __dict_buffer__[param] = __buffer__[param][element]
+            new_list.append(__dict_buffer__.copy())
+
+        return new_list
+
+
+    def split_by_function(self):
+
+        __list_data__ = self.to_list_of_struct(self.data_frame.to_dict())        
+
+        self.list_data_by_class = []
+        self.list_data_by_funct = __list_data__[:]
+
+        # sum the elements with same class
+        self.list_data_by_class = self.sum_numeric_elements_with_same_name(__list_data__, 'class')
+
+        self.__sort_list_of_dicts__('percentageTime', self.list_data_by_class)
+
+        self.set_dict_of_lists_to_plot_data()
