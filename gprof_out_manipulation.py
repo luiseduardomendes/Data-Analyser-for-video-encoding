@@ -15,15 +15,12 @@ class GprofToCSV:
         'class'
     )
 
-    def __init__(self, file_path: str, path_output: str = 'default') -> None:
-        self.set_file_path(file_path)
+    def initialize_path(self, path_input: str, path_output: str = 'default') -> None:
+        self.set_file_path(path_input)
         if path_output == 'default':
-            self.file_output = f'{self.file_path.split(sep=".txt")[0]}.csv'    
+            self.file_output = self.file_path.split(sep=".txt")[0]    
         else:
             self.file_output = path_output
-
-        self.read_gprof_out()
-        self.convert_file()
         
     def set_file_path(self, file_path : str):
         self.file_path = file_path
@@ -35,10 +32,15 @@ class GprofToCSV:
     def get_output_path(self) -> str:
         return self.file_output
 
-    def convert_file(self):
-        dataOut = open(self.file_output, 'w') 
-        dataOut.write(self.data_frame)
+    def convert_file_into_CSV(self):
+        csv_data = self.data_frame.to_csv(index=False, line_terminator='\n')
+
+        dataOut = open(f'{self.file_output}.csv', 'w') 
+        dataOut.write(csv_data)
         dataOut.close()
+
+    def convert_file_into_excel(self):
+        self.data_frame.to_excel(sheet_name='', excel_writer=f'{self.file_output}.xlsx')
 
     def read_gprof_out(self):           
 
@@ -62,7 +64,6 @@ class GprofToCSV:
                 break
                 
             check = pattern.findall(line)
-            
 
             if len(check) != 0:
                 buffer = check[0][:]
@@ -83,7 +84,7 @@ class GprofToCSV:
                 structBuffer['function'][-1] = funct_name
 
         
-        self.data_frame = pd.DataFrame.from_dict(structBuffer).to_csv(index=False, line_terminator='\n')
+        self.data_frame = pd.DataFrame.from_dict(structBuffer)
         dataFile.close()
 
 class GprofOutCSVReader:
@@ -98,31 +99,31 @@ class GprofOutCSVReader:
         'class'
     )
 
-    file_path_set = False
+    is_file_path_set = False
 
     def __init__(self, file_path: str) -> None:
         self.set_file_path(file_path)
-        if self.file_path_set:
-            self.functions_dict()
-            self.split_by_function()
-    
-    def functions_dict(self):
-        # turn the csv data by functions into a dict
-        self.data_frame = pd.read_csv(self.file_path)        
+        if self.is_file_path_set:
+            self.data_frame = pd.read_csv(self.file_path)   
+            self.__split_by_function__()
+        else:
+            print('file path is not set at __init__()')
+   
 
     def set_file_path(self, file : str = 'akiyo.csv'):
         # check if the file is valid 
         if os.path.isfile(file):
             if len(re.compile(r'\.csv$').findall(file)) > 0:
                 self.file_path = file
-                self.file_path_set = True
+                self.is_file_path_set = True
             else:
                 print('Error - file is not a csv file')
         else:
             print('Error - file not found')
 
+    #TODO: create a function to convert into excel format            
+
     # auxiliar function to find the first occurrency of a name
-    
     def __return_element_id__(self, element, d_list : list, key_word : str) -> int:
         for i, j in enumerate(d_list):
             if element == j[key_word]:
@@ -141,6 +142,9 @@ class GprofOutCSVReader:
                     list_data[index + 1] = buffer
                     trade = True
 
+    # the module used (matplotlib.pyplot) requires a list to plot the
+    # graphics, so, this function convert a list of dicts into a dict
+    # of lists
     def __set_dict_of_lists_to_plot_data__(self):
 
         self.dict_data_by_class = {}
@@ -161,6 +165,7 @@ class GprofOutCSVReader:
             for parameter in self.parameters_gprof:
                 self.dict_data_by_funct[parameter].append(element[parameter])
 
+    # its used to sum data of functions called by the same class
     def __sum_numeric_elements_with_same_name__(self, data: list, parameter: str) -> list:
         new_list = []
         for i, element in enumerate(data):
@@ -177,6 +182,8 @@ class GprofOutCSVReader:
 
         return new_list
 
+    # convert a data frame into a list of dicts, to make easy the manipulation
+    # of the elements
     def __to_list_of_struct__(self, __buffer__: dict) -> list:
         new_list = []
         __dict_buffer__ = {}
@@ -189,7 +196,7 @@ class GprofOutCSVReader:
         return new_list
 
 
-    def split_by_function(self):
+    def __split_by_function__(self):
 
         __list_data__ = self.__to_list_of_struct__(self.data_frame.to_dict())        
 
