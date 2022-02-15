@@ -22,17 +22,17 @@ for video in video_list:
     # this can be usefull to use the same data after, so, 
     # its just necessary to read the gprof output file once
     # cause its run is very slow in comparison to the csv read
-    gp_to_csv = gp.GprofToCSV()
-    gp_to_csv.initialize_path(path_input=video)
+    gp_to_csv = gp.GprofToCSV(path_input=video)
     gp_to_csv.read_gprof_out()
     gp_to_csv.convert_file_into_CSV()
     gp_to_csv.convert_file_into_excel()
             
     # read the csv file
-    gp_reader = gp.GprofOutCSVReader(f'{gp_to_csv.get_output_path()}.csv')
+    
+    gp_to_csv.data_frame_into_lists_for_plotter(gp_to_csv.get_data_frame())
 
-    funct = gp_reader.dict_data_by_class['class'][:100]
-    percentTime = gp_reader.dict_data_by_class['percentageTime'][:100]
+    funct = gp_to_csv.dict_data_by_class['class'][:100]
+    percentTime = gp_to_csv.dict_data_by_class['percentageTime'][:100]
 
     plotter = pltd()
     plotter.barh(percentTime, funct);

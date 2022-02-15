@@ -56,6 +56,9 @@ class GprofToCSV:
             else:
                 print('file path is not set')
 
+    def get_data_frame(self):
+        if self.is_data_frame_set:
+            return self.data_frame
 
     def convert_file_into_excel(self):
         if self.is_file_path_set and self.is_data_frame_set:
@@ -114,21 +117,8 @@ class GprofToCSV:
         self.is_data_frame_set = True
         dataFile.close()
 
-class GprofOutCSVReader:
-    parameters_gprof = (
-        'percentageTime',
-        'cumulativeTime',
-        'selfSeconds',
-        'calls',
-        'selfMs/call',
-        'totalMs/call',
-        'function',
-        'class'
-    )
 
-    is_file_path_set = False
-
-    def __init__(self, file_path: str) -> None:
+    def initialize_read_csv(self, file_path: str) -> None:
         self.set_file_path(file_path)
         if self.is_file_path_set:
             self.data_frame = pd.read_csv(self.file_path)   
@@ -137,7 +127,7 @@ class GprofOutCSVReader:
             print('file path is not set at __init__()')
    
 
-    def set_file_path(self, file : str = 'akiyo.csv'):
+    def gprof_read_csv(self, file : str = 'akiyo.csv'):
         # check if the file is valid 
         if os.path.isfile(file):
             if len(re.compile(r'\.csv$').findall(file)) > 0:
@@ -223,9 +213,9 @@ class GprofOutCSVReader:
         return new_list
 
 
-    def __split_by_function__(self):
+    def data_frame_into_lists_for_plotter(self, dataFrame: pd.DataFrame()):
 
-        __list_data__ = self.__to_list_of_struct__(self.data_frame.to_dict())        
+        __list_data__ = self.__to_list_of_struct__(dataFrame.to_dict())        
 
         self.list_data_by_class = []
         self.list_data_by_funct = __list_data__[:]
