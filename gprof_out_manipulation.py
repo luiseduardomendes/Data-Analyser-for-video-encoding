@@ -41,7 +41,7 @@ class GprofToCSV:
     def get_output_path(self) -> str:
         return self.file_output
 
-    def convert_file_into_CSV(self):
+    def convert_data_frame_into_CSV(self):
         if self.is_file_path_set and self.is_data_frame_set:
             csv_data = self.data_frame.to_csv(index=False, line_terminator='\n')
 
@@ -60,7 +60,7 @@ class GprofToCSV:
         if self.is_data_frame_set:
             return self.data_frame
 
-    def convert_file_into_excel(self):
+    def convert_data_frame_into_excel(self):
         if self.is_file_path_set and self.is_data_frame_set:
             self.data_frame.to_excel(sheet_name='', excel_writer=f'{self.file_output}.xlsx')
         else:
@@ -116,25 +116,13 @@ class GprofToCSV:
         self.data_frame = pd.DataFrame.from_dict(structBuffer)
         self.is_data_frame_set = True
         dataFile.close()
-
-
-    def initialize_read_csv(self, file_path: str) -> None:
-        self.set_file_path(file_path)
-        if self.is_file_path_set:
-            self.data_frame = pd.read_csv(self.file_path)   
-            self.__split_by_function__()
-        else:
-            print('file path is not set at __init__()')
    
 
-    def gprof_read_csv(self, file : str = 'akiyo.csv'):
+    def gprof_read_csv(self):
         # check if the file is valid 
-        if os.path.isfile(file):
-            if len(re.compile(r'\.csv$').findall(file)) > 0:
-                self.file_path = file
-                self.is_file_path_set = True
-            else:
-                print('Error - file is not a csv file')
+        if os.path.isfile(self.file_path):
+            pass
+            self.data_frame = pd.DataFrame.read_csv(self.file_path)
         else:
             print('Error - file not found')
 
@@ -195,7 +183,10 @@ class GprofToCSV:
                 # sums the content that is already in the dict with the new element
                 for parameter in element.keys():
                     if type(new_list[index][parameter]) != str:
-                        new_list[index][parameter] += element[parameter]
+                        try:
+                            new_list[index][parameter] += element[parameter]
+                        except:
+                            pass
 
         return new_list
 
@@ -213,9 +204,9 @@ class GprofToCSV:
         return new_list
 
 
-    def data_frame_into_lists_for_plotter(self, dataFrame: pd.DataFrame()):
+    def data_frame_into_lists_for_plotter(self):
 
-        __list_data__ = self.__to_list_of_struct__(dataFrame.to_dict())        
+        __list_data__ = self.__to_list_of_struct__(self.data_frame.to_dict())        
 
         self.list_data_by_class = []
         self.list_data_by_funct = __list_data__[:]

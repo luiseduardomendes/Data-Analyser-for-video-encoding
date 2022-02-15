@@ -24,12 +24,10 @@ for video in video_list:
     # cause its run is very slow in comparison to the csv read
     gp_to_csv = gp.GprofToCSV(path_input=video)
     gp_to_csv.read_gprof_out()
-    gp_to_csv.convert_file_into_CSV()
-    gp_to_csv.convert_file_into_excel()
+    gp_to_csv.convert_data_frame_into_CSV()
+    gp_to_csv.convert_data_frame_into_excel()
             
-    # read the csv file
-    
-    gp_to_csv.data_frame_into_lists_for_plotter(gp_to_csv.get_data_frame())
+    gp_to_csv.data_frame_into_lists_for_plotter()
 
     funct = gp_to_csv.dict_data_by_class['class'][:100]
     percentTime = gp_to_csv.dict_data_by_class['percentageTime'][:100]
