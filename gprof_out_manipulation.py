@@ -22,25 +22,17 @@ class GprofToCSV:
             'class'
         )
 
-        self.dir_path_output = ''
-
     def initialize_path(self, path_input: str, path_output: str = 'default') -> None:
         self.set_file_path(path_input)
         if path_output == 'default':
             self.file_output = self.file_path.split(sep=".txt")[0]    
         else:
             self.file_output = path_output
-
-    def set_output_dir(self, dir: str):
-        if os.path.isdir(dir):
-            self.dir_path_output = dir
-        else:
-            print(f'"{dir}" is not a directory')
         
     def set_file_path(self, file_path : str):
         # TODO: verify if the path indicated is valid
         self.file_path = file_path
-        self.file_output = f'{self.dir_path_output}{self.file_path.split(sep=".txt")[0]}.csv'
+        self.file_output = f'{self.file_path.split(sep=".txt")[0]}.csv'
         self.is_file_path_set = True
 
     def set_file_output(self, txt : str):
