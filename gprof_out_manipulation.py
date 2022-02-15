@@ -1,19 +1,28 @@
 
+from ast import Is
 import re
 import os
 import pandas as pd
 
 class GprofToCSV: 
-    parameters_gprof = (
-        'percentageTime',
-        'cumulativeTime',
-        'selfSeconds',
-        'calls',
-        'selfMs/call',
-        'totalMs/call',
-        'function',
-        'class'
-    )
+    
+
+    def __init__(self) -> None:
+        self.is_data_frame_set = False
+        self.is_file_path_set = False
+
+        self.parameters_gprof = (
+            'percentageTime',
+            'cumulativeTime',
+            'selfSeconds',
+            'calls',
+            'selfMs/call',
+            'totalMs/call',
+            'function',
+            'class'
+        )
+
+        self.dir_path_output = ''
 
     def initialize_path(self, path_input: str, path_output: str = 'default') -> None:
         self.set_file_path(path_input)
@@ -21,10 +30,18 @@ class GprofToCSV:
             self.file_output = self.file_path.split(sep=".txt")[0]    
         else:
             self.file_output = path_output
+
+    def set_output_dir(self, dir: str):
+        if os.path.isdir(dir):
+            self.dir_path_output = dir
+        else:
+            print(f'"{dir}" is not a directory')
         
     def set_file_path(self, file_path : str):
+        # TODO: verify if the path indicated is valid
         self.file_path = file_path
-        self.file_output = f'{self.file_path.split(sep=".txt")[0]}.csv'
+        self.file_output = f'{self.dir_path_output}{self.file_path.split(sep=".txt")[0]}.csv'
+        self.is_file_path_set = True
 
     def set_file_output(self, txt : str):
         self.file_output = f'{txt}'
@@ -33,14 +50,31 @@ class GprofToCSV:
         return self.file_output
 
     def convert_file_into_CSV(self):
-        csv_data = self.data_frame.to_csv(index=False, line_terminator='\n')
+        if self.is_file_path_set and self.is_data_frame_set:
+            csv_data = self.data_frame.to_csv(index=False, line_terminator='\n')
 
-        dataOut = open(f'{self.file_output}.csv', 'w') 
-        dataOut.write(csv_data)
-        dataOut.close()
+            dataOut = open(f'{self.file_output}.csv', 'w') 
+            dataOut.write(csv_data)
+            dataOut.close()
+        else:
+            if not self.is_data_frame_set and not self.is_file_path_set:
+                print('file path is not set and gprof file wasnt read yet')
+            elif self.is_data_frame_set:
+                print('gprof file wasnt read yet')
+            else:
+                print('file path is not set')
+
 
     def convert_file_into_excel(self):
-        self.data_frame.to_excel(sheet_name='', excel_writer=f'{self.file_output}.xlsx')
+        if self.is_file_path_set and self.is_data_frame_set:
+            self.data_frame.to_excel(sheet_name='', excel_writer=f'{self.file_output}.xlsx')
+        else:
+            if not self.is_data_frame_set and not self.is_file_path_set:
+                print('file path is not set and gprof file wasnt read yet')
+            elif self.is_data_frame_set:
+                print('gprof file wasnt read yet')
+            else:
+                print('file path is not set')
 
     def read_gprof_out(self):           
 
@@ -85,6 +119,7 @@ class GprofToCSV:
 
         
         self.data_frame = pd.DataFrame.from_dict(structBuffer)
+        self.is_data_frame_set = True
         dataFile.close()
 
 class GprofOutCSVReader:
