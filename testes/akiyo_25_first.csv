@@ -1,0 +1,25 @@
+percentageTime,cumulativeTime,selfSeconds,calls,selfMs/call,totalMs/call,function,class
+5.88,3.02,3.02,5798885.0,0.0,0.0,AlfCovariance::gnsCholeskyDec,AlfCovariance
+3.08,6.81,1.58,3805699.0,0.0,0.0,IntraPrediction::xPredIntraAng,IntraPrediction
+2.47,9.55,1.27,31407280.0,0.0,0.0,DQIntern::DepQuant::xDecide,DQIntern
+2.24,11.93,1.15,5696382.0,0.0,0.0,AlfCovariance::gnsBacksubstitution,AlfCovariance
+1.48,13.81,0.76,5696382.0,0.0,0.0,AlfCovariance::gnsTransposeBacksubstitution,AlfCovariance
+1.27,15.22,0.65,36352264.0,0.0,0.0,void DQIntern::State::updateState<,void DQIntern
+1.19,16.47,0.61,9075200.0,0.0,0.0,unsigned long RdCost::xGetSADwMask_SIMD<,unsigned long RdCost
+1.11,17.61,0.57,4679778.0,0.0,0.0,"void InterpolationFilter::filterCopy<true, false>",void InterpolationFilter
+0.97,18.64,0.5,689183.0,0.0,0.0,InterPrediction::xPredAffineBlk,InterPrediction
+0.89,19.56,0.46,44368210.0,0.0,0.0,CodingStructure::getCU,CodingStructure
+0.86,20.44,0.44,1659464.0,0.0,0.0,IntraPrediction::xFillReferenceSamples,IntraPrediction
+0.78,21.26,0.4,14896280.0,0.0,0.0,unsigned long RdCost::xGetHADs_SIMD<,unsigned long RdCost
+0.73,22.03,0.38,5447092.0,0.0,0.0,void simdFilter<,no_class
+0.7,22.75,0.36,95920.0,0.0,0.0,QuantRDOQ::xRateDistOptQuantTS,QuantRDOQ
+0.63,23.41,0.33,782148.0,0.0,0.0,RdCost::xGetSSE16,RdCost
+0.58,24.02,0.3,47487.0,0.0,0.0,EncCu::xCheckRDCostMerge2Nx2N,EncCu
+0.56,24.6,0.29,1604174.0,0.0,0.0,IntraSearch::xIntraCodingTUBlock,IntraSearch
+0.56,25.18,0.29,70959.0,0.0,0.0,AlfCovariance::optimizeFilter,AlfCovariance
+0.56,25.76,0.29,1661104.0,0.0,0.0,TrQuant::xIT,TrQuant
+0.56,26.34,0.29,3108597.0,0.0,0.0,InterPrediction::xPredInterBi,InterPrediction
+0.55,26.9,0.28,547368.0,0.0,0.0,"void InterpolationFilter::filterCopy<false, true>",void InterpolationFilter
+0.54,27.46,0.28,135326296.0,0.0,0.0,Picture::getRecoBuf,Picture
+0.51,27.99,0.26,617492.0,0.0,0.0,fastForwardDCT2_B16,no_class
+0.51,28.51,0.26,1140951.0,0.0,0.0,MatrixIntraPrediction::computeReducedPred,MatrixIntraPrediction
