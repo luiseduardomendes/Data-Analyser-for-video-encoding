@@ -3,31 +3,31 @@ from ast import Is
 import re
 import os
 import pandas as pd
+from sqlalchemy import func
 
-class GprofToCSV: 
-    
+class GprofToCSV:     
+    is_data_frame_set = False
+    is_file_path_set = False
 
-    def __init__(self) -> None:
-        self.is_data_frame_set = False
-        self.is_file_path_set = False
+    parameters_gprof = (
+        'percentageTime',
+        'cumulativeTime',
+        'selfSeconds',
+        'calls',
+        'selfMs/call',
+        'totalMs/call',
+        'function',
+        'class'
+    )
 
-        self.parameters_gprof = (
-            'percentageTime',
-            'cumulativeTime',
-            'selfSeconds',
-            'calls',
-            'selfMs/call',
-            'totalMs/call',
-            'function',
-            'class'
-        )
-
-    def initialize_path(self, path_input: str, path_output: str = 'default') -> None:
+    def __init__(self, path_input: str, path_output: str = 'default') -> None:
         self.set_file_path(path_input)
         if path_output == 'default':
             self.file_output = self.file_path.split(sep=".txt")[0]    
         else:
             self.file_output = path_output
+
+        self.read_gprof_out()
         
     def set_file_path(self, file_path : str):
         # TODO: verify if the path indicated is valid
@@ -106,10 +106,10 @@ class GprofToCSV:
                 else:
                     class_name = 'no_class'
                 funct_name = buffer[6].split(sep='(')[0]
+                funct_name = funct_name.split(sep='::')[-1]
                 structBuffer['class'][-1] = class_name
                 structBuffer['function'][-1] = funct_name
 
-        
         self.data_frame = pd.DataFrame.from_dict(structBuffer)
         self.is_data_frame_set = True
         dataFile.close()
