@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from email.charset import QP
 from matplotlib.pyplot import plot
@@ -42,3 +41,4 @@ for video in video_list:
     plotter.insertLists(percentTime, 'percentageTime', funct, 'function')
     plotter.setOutputFileName(gp_to_csv.get_output_path(), quant_param[0], video_cfgs[0])
     plotter.plotBarhGraph()
+

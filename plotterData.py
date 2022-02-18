@@ -63,4 +63,3 @@ class Plotter:
 
         plt.savefig(f'output/{self.__outputFileName}/plot_{self.__outputNameX}_by_{self.__outputNameY}_{self.__fileName}.png')        
 
-        
