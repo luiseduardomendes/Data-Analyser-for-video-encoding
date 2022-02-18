@@ -1,10 +1,10 @@
-
 from datetime import datetime
+from email.charset import QP
+from matplotlib.pyplot import plot
 from sqlalchemy import func
 import gprof_out_manipulation as gp
 from terminalPlotter import TerminalBarhPlotter as pltd
 from plotterData import Plotter
-import os
 
 video_list = ['akiyo.txt']
 quant_param = [27,29,31,33]
@@ -41,3 +41,4 @@ for video in video_list:
     plotter.insertLists(percentTime, 'percentageTime', funct, 'function')
     plotter.setOutputFileName(gp_to_csv.get_output_path(), quant_param[0], video_cfgs[0])
     plotter.plotBarhGraph()
+
