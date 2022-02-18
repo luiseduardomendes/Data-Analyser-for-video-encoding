@@ -26,8 +26,8 @@ class Plotter:
     def insertLists(self, dataListX, dataListXName, dataListY, dataListYName):
         self.__plotterListX = dataListX
         self.__plotterListY = dataListY
-        self.__plotterListXName = self.__parametersInGraph[dataListXName]
-        self.__plotterListYName = self.__parametersInGraph[dataListYName]
+        self.__plotterListXName = self.__parametersDict__[dataListXName]
+        self.__plotterListYName = self.__parametersDict__[dataListYName]
         self.__outputNameX = dataListXName
         self.__outputNameY = dataListYName
 
@@ -61,6 +61,6 @@ class Plotter:
 
         plt.subplots_adjust(left=0.2)
 
-        plt.savefig(f'output/{self.__outputFileName}/plot_{self.__outputNameX}_by_{self.__outputNameY}_{self.__fileName}')        
+        plt.savefig(f'output/{self.__outputFileName}/plot_{self.__outputNameX}_by_{self.__outputNameY}_{self.__fileName}.png')        
 
-        plt.show()
+        
