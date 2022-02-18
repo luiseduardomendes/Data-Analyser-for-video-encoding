@@ -1,8 +1,10 @@
 
 from datetime import datetime
+
 from sqlalchemy import func
 import gprof_out_manipulation as gp
 from terminalPlotter import TerminalBarhPlotter as pltd
+from plotterData import Plotter
 import os
 
 video_list = ['akiyo.txt']
@@ -36,3 +38,9 @@ for video in video_list:
     plotter.barh(percentTime, funct);
     plotter.show()
 
+    plotter = Plotter()
+    plotter.insertLists(percentTime, 'percentageTime', funct, 'class')
+    plotter.setOutputFileName(gp_to_csv.get_output_path(), 31, 'all_intra')
+    plotter.plotBarhGraph()
+
+# qp [22,27,32,37]
