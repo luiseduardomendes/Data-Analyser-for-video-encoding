@@ -18,11 +18,14 @@ enc_cfgs = [
     'encoder_lowdelay_vtm.cfg',
     'encoder_randomaccess_vtm.cfg'
 ]
+
+gp_exe(enc_cfgs[0], video_cfg[0], output_dir, video_cfg[0][:-4], quant_param[3])
+
 '''
 for video in video_cfg:
     for qp in quant_param:
         for cfg in enc_cfgs:
-            exec = gp_exe(cfg, cfg_videos_dir+video, output_dir, video[:-4], qp)'''
+            exec = gp_exe(cfg, cfg_videos_dir+video, output_dir, video[:-4], qp)
             # gp_to_csv = gp.GprofToCSV()
             # gp_to_csv.initialize_path(file_path=f'{video}_{qp}_{cfg}_{datetime.today}')
             # gp_reader = gp.GprofOutCSVReader(gp_to_csv.get_output_path())
@@ -32,7 +35,7 @@ for video in video_cfg:
     # this can be usefull to use the same data after, so, 
     # its just necessary to read the gprof output file once
     # cause its run is very slow in comparison to the csv read
-    '''gp_to_csv = gp.GprofToCSV(path_input=video)
+    gp_to_csv = gp.GprofToCSV(path_input=video)
     gp_to_csv.read_gprof_out()
     gp_to_csv.convert_data_frame_into_CSV()
     gp_to_csv.convert_data_frame_into_excel()
@@ -50,4 +53,4 @@ for video in video_cfg:
     plotter.insertLists(percentTime, 'percentageTime', funct, 'function')
     plotter.setOutputFileName(gp_to_csv.get_output_path(), quant_param[0], video_cfgs[0])
     plotter.plotBarhGraph()
-'''
+    '''
