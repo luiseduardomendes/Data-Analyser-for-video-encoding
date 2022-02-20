@@ -1,9 +1,6 @@
-
-from ast import Is
 import re
 import os
 import pandas as pd
-from sqlalchemy import func
 
 class GprofToCSV:     
     is_data_frame_set = False
