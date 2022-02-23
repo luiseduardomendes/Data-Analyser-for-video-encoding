@@ -118,8 +118,7 @@ class GprofToCSV:
     def gprof_read_csv(self):
         # check if the file is valid 
         if os.path.isfile(self.file_path):
-            pass
-            self.data_frame = pd.DataFrame.read_csv(self.file_path)
+            self.data_frame = pd.read_csv(self.file_path)
         else:
             print('Error - file not found')
 

@@ -17,12 +17,17 @@ enc_cfgs = [
     'encoder_randomaccess_vtm.cfg'
 ]
 
+gp_exe(enc_cfgs[1], cfg_videos_dir + video_cfg[5], video_cfg[5][:-4], quant_param[3], 10)
+
+gp_to_csv = gp.GprofToCSV(path_input='/home/luispmendes/VVCSoftware_VTM/out/logs_gprof/gprof_log_'+video_cfg[5][:-4]+'.txt')
+gp_to_csv.read_gprof_out()
+gp_to_csv.convert_data_frame_into_CSV()
+
 gp_exe(enc_cfgs[1], cfg_videos_dir + video_cfg[2], video_cfg[2][:-4], quant_param[3], 10)
 
 gp_to_csv = gp.GprofToCSV(path_input='/home/luispmendes/VVCSoftware_VTM/out/logs_gprof/gprof_log_'+video_cfg[2][:-4]+'.txt')
 gp_to_csv.read_gprof_out()
 gp_to_csv.convert_data_frame_into_CSV()
-
 
 
 '''
