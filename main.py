@@ -31,9 +31,9 @@ gp_to_csv.convert_data_frame_into_CSV()
 
 
 '''
-or video in video_cfg:
-    or qp in quant_param:
-        or cfg in enc_cfgs:
+for video in video_cfg:
+    for qp in quant_param:
+        for cfg in enc_cfgs:
             exec = gp_exe(cfg, cfg_videos_dir+video, output_dir, video[:-4], qp)
             # gp_to_csv = gp.GprofToCSV()
             # gp_to_csv.initialize_path(file_path=f'{video}_{qp}_{cfg}_{datetime.today}')
