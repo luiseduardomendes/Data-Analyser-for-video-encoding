@@ -20,7 +20,7 @@ class gprof_executer:
                     f'-c {cfg_video}' + # video parameters 
                     f'-b {out_dir}videos_bin/{video_name}.bin ' + # output binary video
                     f'-q {qp} -f 32 ' +
-                    f'>> {out_dir}/{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_exec.txt ' +
+                    f'>> {out_dir}/{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_exec.gplog ' +
                     # 
                     f'&& gprof {bin_dir}EncoderAppStatic gmon.out' +
                     f'>> {out_dir}/{video_name}/{encoder}/gprof_log/log_{video_name}_qp{qp}_{encoder}_gprof.txt')
