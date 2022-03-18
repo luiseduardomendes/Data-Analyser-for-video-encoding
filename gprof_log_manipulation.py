@@ -1,24 +1,17 @@
 import re
-
+import pandas as pd
 class gprofLogManip():
     def __init__(self, datafile: str) -> None:
         if self.__verifyFile__(datafile):
             with open(datafile) as f:
-                self.data = f.read()
+                self._data_ = f.read()
                 f.close()
-        
-    def __verifyFile__(self, filename) -> bool:
-        if len(re.findall(r'(?=.txt^|.gplog^)', filename)) > 0:
-            return True
-        else:
-            return False
 
-    def returnInfo(self) -> dict:
-        _data_ = re.findall(r'^\s+(\d+)\s+a\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)$')
-        
-        data_list = []
+        _data_ = re.findall(r'^\s+(\d+)\s+a\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+(\d+\.\d+)\s+$', self._data_, flags=re.M)
+
         data_dict = {
-            'bitrate' : int,
+            'frames' : int,
+            'bitrate' : float,
             'Y_PSNR' : float,
             'U_PSNR' : float,
             'V_PSNR' : float,
@@ -32,14 +25,33 @@ class gprofLogManip():
                     data_dict[key] = int(log[i])
                 except:
                     data_dict[key] = float(log[i])
-
-            data_list.append(data_dict.copy())
+            self.dataDict = data_dict
+            
         elif len(_data_) == 0:
-            return None
+            self.dataDict = data_dict
+            return data_dict
         
         else:
             raise Exception("File has more than one execution log")
 
+    def __verifyFile__(self, filename) -> bool:
+        if len(re.findall(r'(.+)(?!(?:\.txt$)|(?:\.gplog$))', filename)) > 0:
+            return True
+        else:
+            return False
+    
 
-        return data_list
-            
+    def returnDict(self) -> dict:
+        try:
+            return self.dataDict
+        except:
+            raise Exception("data dict has not been set yet")
+
+    def returnDataFrame(self) -> pd.DataFrame:
+        try:
+            return pd.DataFrame(self.data_dict)
+        except:
+            raise Exception("data dict has not been set yet")
+
+class gprofLogSets:
+    pass
