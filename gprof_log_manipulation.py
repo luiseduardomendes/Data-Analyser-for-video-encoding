@@ -13,6 +13,7 @@ class gprofLogManip():
 
         data_dict = {
             'fileName' : str,
+            'qp' : int,
             'frames' : int,
             'bitrate' : float,
             'Y_PSNR' : float,
@@ -25,12 +26,14 @@ class gprofLogManip():
             log = _data_[0]
             for i, key in enumerate(data_dict.keys()):
                 if key == 'fileName':
-                    data_dict[key] = datafile
+                    data_dict[key] = re.findall(r'AI/(.+)_QP\d{2}.txt', datafile)[0]
+                elif key == 'qp':
+                    data_dict[key] = int(re.findall(r'AI/.+_QP(\d{2}).txt', datafile)[0])
                 else:
                     try:
-                        data_dict[key] = int(log[i-1])
+                        data_dict[key] = int(log[i-2])
                     except:
-                        data_dict[key] = float(log[i-1])
+                        data_dict[key] = float(log[i-2])
             self.dataDict = data_dict
             
         elif len(_data_) == 0:
@@ -40,13 +43,16 @@ class gprofLogManip():
         else:
             raise Exception("File has more than one execution log")
 
+
+
     def __verifyFile__(self, filename) -> bool:
         if len(re.findall(r'(.+)(?!(?:\.txt$)|(?:\.gplog$))', filename)) > 0:
             return True
         else:
             return False
     
-
+    
+    
     def returnDict(self) -> dict:
         try:
             return self.dataDict
@@ -54,8 +60,9 @@ class gprofLogManip():
             raise Exception("data dict has not been set yet")
 
 
+
 class gprofLogSets:
-    keys = ('fileName', 'frames', 'bitrate', 'Y_PSNR', 'U_PSNR', 'V_PSNR', 'YUV_PSNR')
+    keys = ('fileName', 'qp', 'frames', 'bitrate', 'Y_PSNR', 'U_PSNR', 'V_PSNR', 'YUV_PSNR')
 
     # initialize the dict
     def __init__(self) -> None:
@@ -64,7 +71,7 @@ class gprofLogSets:
         for key in self.keys:
             self.__data_dict[key] = []
     
-    # insert a 
+    # insert a dict
     def appendDict(self, data_dict : dict):
         for key in self.keys:
             try:
@@ -80,3 +87,6 @@ class gprofLogSets:
     # outputFileName parameter must be the name without the file extension (.xlsx, .txt)
     def createExcel(self, outputFileName : str):
         pd.DataFrame(self.__data_dict).to_excel(excel_writer=f'{outputFileName}.xlsx')
+
+    def createCsv(self, outputFileName : str):
+        pd.DataFrame(self.__data_dict).to_csv(path_or_buf=outputFileName+'.csv', index=False, line_terminator='\n')

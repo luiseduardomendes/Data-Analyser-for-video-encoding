@@ -2,7 +2,7 @@ import re
 import os
 import pandas as pd
 
-class GprofToCSV:     
+class GprofOutManip:     
     is_data_frame_set = False
     is_file_path_set = False
 
@@ -23,8 +23,6 @@ class GprofToCSV:
             self.file_output = self.file_path.split(sep=".txt")[0]    
         else:
             self.file_output = path_output
-
-        self.read_gprof_out()
         
     def set_file_path(self, file_path : str):
         # TODO: verify if the path indicated is valid
@@ -40,11 +38,13 @@ class GprofToCSV:
 
     def convert_data_frame_into_CSV(self):
         if self.is_file_path_set and self.is_data_frame_set:
-            csv_data = self.data_frame.to_csv(index=False, line_terminator='\n')
+            self.data_frame.to_csv(
+                path_or_buf=self.file_output+'.csv', 
+                index=False, 
+                line_terminator='\n'
+            )
 
-            dataOut = open(f'{self.file_output}.csv', 'w') 
-            dataOut.write(csv_data)
-            dataOut.close()
+        # catch exceptions
         else:
             if not self.is_data_frame_set and not self.is_file_path_set:
                 print('file path is not set and gprof file wasnt read yet')
