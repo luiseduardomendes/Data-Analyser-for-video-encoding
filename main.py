@@ -1,9 +1,7 @@
-import gprof_out_manipulation as gp
-from terminalPlotter import TerminalBarhPlotter as tbp
-from plotterData import Plotter as plt
+import src.gprof_out_manipulation as gp
 import os
 from os import path, listdir, system
-from gprof_executer import gprof_executer as gp_exe
+from src.gprof_executer import gprof_executer as gp_exe
 
 
 cfg_videos_dir = '/home/luispmendes/VVCSoftware_VTM/cfg-files/'

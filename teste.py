@@ -1,7 +1,4 @@
-from csv import excel_tab
-import csv
-from unicodedata import name
-import gprof_log_manipulation as gp
+import src.gprof_log_manipulation as gp
 from os import listdir, path,mkdir
 import re
 
