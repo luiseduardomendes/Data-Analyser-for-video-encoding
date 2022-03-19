@@ -1,5 +1,8 @@
 import re
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 class gprofLogManip():
     def __init__(self, datafile: str) -> None:
@@ -90,3 +93,64 @@ class gprofLogSets:
 
     def createCsv(self, outputFileName : str):
         pd.DataFrame(self.__data_dict).to_csv(path_or_buf=outputFileName+'.csv', index=False, line_terminator='\n')
+
+    # TODO: implement the method createGraph to a GprofLogSet()
+    
+def createGraph(x_list, y_list, videos, outputFileName : str, title : str = '', xlabel : str = '' , ylabel : str = ''):
+    x_axis = []
+    y_axis = []
+
+    try:
+        for x in x_list:
+            x_axis.append(np.array(x))
+        for y in y_list:
+            y_axis.append(np.array(y))
+        
+        if len(x_axis) != len(y_axis) or len(x_axis) != len(videos):
+            raise Exception("number of y and x axis are not the same")
+
+        for i in range(len(x_axis)):
+            if len(x_axis[i]) != len(y_axis[i]):
+                raise Exception("size of lists are not the same")
+
+    except:
+        raise Exception("Objects for axis are not valid")
+    
+    for i in range(len(x_axis)):
+        t = True
+        k = len(x_axis[i]) - 1
+        while t == True:
+            t = False
+            for j in range(k):
+                if x_axis[i][j] > x_axis[i][j+1]:
+                    b = x_axis[i][j]
+                    c = y_axis[i][j]
+                    x_axis[i][j] = x_axis[i][j+1]
+                    y_axis[i][j] = y_axis[i][j+1]
+                    x_axis[i][j+1] = b
+                    y_axis[i][j+1] = c
+                    t = True
+            k -= 1
+
+            
+                
+
+            
+
+
+    fig, ax = plt.subplots()
+    
+    for i in range(len(x_axis)):
+        ax.scatter(x_axis[i], y_axis[i], label=videos[i])
+        ax.plot(x_axis[i], y_axis[i], label=videos[i])
+        
+
+    ax.set(title=title, xlabel=xlabel, ylabel=ylabel)
+    ax.legend()
+    ax.grid()
+    fig.savefig(outputFileName+'.png')
+    
+    
+
+
+    
