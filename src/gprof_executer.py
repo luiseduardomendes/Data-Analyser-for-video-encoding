@@ -9,6 +9,10 @@ class gprof_executer:
         bin_dir = vtm_dir + "bin/"
         out_dir = vtm_dir + "out/"
 
+        ts_status = ''
+        if (cfg_encoder == 'encoder_intra_vtm.cfg'):
+            ts_status = '-ts 1'
+
         encoder = self.encoder_used(cfg_encoder)
 
         print(f'encoding {video_name} with cfg {cfg_encoder}, {cfg_video} and qp {qp}')
@@ -19,7 +23,7 @@ class gprof_executer:
                     f'-c {cfg_dir}{cfg_encoder}' + # encoder 
                     f'-c {cfg_video}' + # video parameters 
                     f'-b {out_dir}videos_bin/{video_name}.bin ' + # output binary video
-                    f'-q {qp} -f 32 ' +
+                    f'-q {qp} -f 32 {ts_status} --SIMD=SCALAR &' +
                     f'>> {out_dir}/{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_exec.gplog ' +
                     # 
                     f'&& gprof {bin_dir}EncoderAppStatic gmon.out' +
