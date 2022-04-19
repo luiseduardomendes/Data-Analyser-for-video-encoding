@@ -7,7 +7,7 @@ class gprof_executer:
 
         cfg_dir = vtm_dir + "cfg/"    
         bin_dir = vtm_dir + "bin/"
-        out_dir = vtm_dir + "out/" + satd_settings[:-4] + "/"
+        out_dir = vtm_dir + "out/" + satd_settings
 
         ts_status = ''
         if (cfg_encoder == 'encoder_intra_vtm.cfg'):
