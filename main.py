@@ -3,7 +3,6 @@ import os
 from os import path, listdir, system
 from src.gprof_executer import gprof_executer as gp_exe
 from fileSubstitution import fileSubs
-from pprint import pprint
 
 cfg_videos_dir = '/home/luispmendes/VVCSoftware_VTM/cfg-files/'
 satd_dir = ''
@@ -25,7 +24,9 @@ for (dirpath, dirnames, filenames) in os.walk(satd_src):
 for settings in satd_settings:
 
     fileSubs(settings, satd_dir)
+    os.system("cd /home/luispmendes/VVCSoftware_VTM/build")
     os.system("make")
+    os.system("cd /home/luispmendes/Data-Analyser-for-video-encoding/")
 
     for video in video_cfg:
         for qp in quant_param:
@@ -35,6 +36,26 @@ for settings in satd_settings:
             # gp_to_csv = gp.GprofToCSV()
             # gp_to_csv.initialize_path(file_path=f'{video}_{qp}_{cfg}_{datetime.today}')
             # gp_reader = gp.GprofOutCSVReader(gp_to_csv.get_output_path())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 '''
     # convert the gprof file into a csv file
     # this can be usefull to use the same data after, so, 
