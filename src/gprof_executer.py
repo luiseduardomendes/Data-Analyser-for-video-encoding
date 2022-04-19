@@ -2,12 +2,12 @@ import os
 import re
 
 class gprof_executer:
-    def __init__(self, cfg_encoder: str, cfg_video: str, video_name: str, qp: int):
+    def __init__(self, cfg_encoder: str, cfg_video: str, video_name: str, qp: int, satd_settings: str):
         vtm_dir = "/home/luispmendes/VVCSoftware_VTM/"
 
         cfg_dir = vtm_dir + "cfg/"    
         bin_dir = vtm_dir + "bin/"
-        out_dir = vtm_dir + "out/"
+        out_dir = vtm_dir + f"out/{satd_settings}/"
 
         ts_status = ''
         if (cfg_encoder == 'encoder_intra_vtm.cfg'):
@@ -23,8 +23,8 @@ class gprof_executer:
                     f'-c {cfg_dir}{cfg_encoder}' + # encoder 
                     f'-c {cfg_video}' + # video parameters 
                     f'-b {out_dir}videos_bin/{video_name}.bin ' + # output binary video
-                    f'-q {qp} -f 32 {ts_status} --SIMD=SCALAR &' +
-                    f'>> {out_dir}/{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_exec.gplog ' +
+                    f'-q {qp} -f 32 {ts_status} --SIMD=SCALAR ' +
+                    f'>> {out_dir}/{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_exec.gplog & ' +
                     # 
                     f'&& gprof {bin_dir}EncoderAppStatic gmon.out' +
                     f'>> {out_dir}/{video_name}/{encoder}/gprof_log/log_{video_name}_qp{qp}_{encoder}_gprof.txt')
