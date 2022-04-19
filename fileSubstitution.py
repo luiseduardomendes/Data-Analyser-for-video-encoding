@@ -15,15 +15,15 @@ class fileSubs:
         else:   
             raise Exception("Destiny is not a directory!")
 
-        system(f"cp {self.source_path} {self.destiny_path}")    
+        system(f"cp {self.source_path} {self.destiny_path}RdCost.cpp")    
 
     def __verify_path__(self, path:str) -> bool:
         if isfile(path):
             return True
         return False
 
-    def __verify_dir__(self, dir:str) -> bool:
-        if isdir(dir):
+    def __verify_dir__(self, dir1 : str) -> bool:
+        if isdir(dir1):
             return True
         return False
         

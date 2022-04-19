@@ -1,12 +1,14 @@
 import src.gprof_out_manipulation as gp
 import os
+import re
 from os import path, listdir, system
 from src.gprof_executer import gprof_executer as gp_exe
 from fileSubstitution import fileSubs
 
 cfg_videos_dir = '/home/luispmendes/VVCSoftware_VTM/cfg-files/'
-satd_dir = ''
+satd_dir = '/home/luispmendes/VVCSoftware_VTM/source/Lib/CommonLib/'
 satd_src = '/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/'
+
 
 video_cfg = [f for f in listdir(cfg_videos_dir) if path.isfile(path.join(cfg_videos_dir, f)) and f[-4:] == '.cfg']
 
@@ -31,7 +33,7 @@ for settings in satd_settings:
     for video in video_cfg:
         for qp in quant_param:
             for cfg in enc_cfgs:
-                gp_exe(cfg, cfg_videos_dir+video, video, video[:-4], qp, settings)
+                gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, re.findall(r"/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(.+).cpp", settings)[0][0].replace('/', '-'))
             
             # gp_to_csv = gp.GprofToCSV()
             # gp_to_csv.initialize_path(file_path=f'{video}_{qp}_{cfg}_{datetime.today}')
