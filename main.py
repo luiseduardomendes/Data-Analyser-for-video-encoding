@@ -32,7 +32,7 @@ for settings in satd_settings:
     os.system("make")
     os.system("cd /home/luispmendes/Data-Analyser-for-video-encoding/")
 
-    setting_name = str(re.findall(pattern, settings)[0]).replace('/', '-')
+    setting_name = str(re.findall(pattern, settings)[0]).replace('/', '-').replace('(', '-').replace(')', '-')
 
     if not os.path.isdir(out_videos_dir + setting_name):
         os.mkdir(out_videos_dir + setting_name)
