@@ -23,6 +23,8 @@ satd_settings = []
 for (dirpath, dirnames, filenames) in os.walk(satd_src):
     satd_settings += [os.path.join(dirpath, file) for file in filenames]
 
+pattern = re.compile(r'^/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(.+)\.cpp$')
+
 for settings in satd_settings:
 
     fileSubs(settings, satd_dir)
@@ -33,7 +35,7 @@ for settings in satd_settings:
     for video in video_cfg:
         for qp in quant_param:
             for cfg in enc_cfgs:
-                gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, re.findall(r"/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(.+).cpp", settings)[0][0].replace('/', '-'))
+                gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, str(re.findall(pattern, settings)).replace('/', '-'))
             
             # gp_to_csv = gp.GprofToCSV()
             # gp_to_csv.initialize_path(file_path=f'{video}_{qp}_{cfg}_{datetime.today}')

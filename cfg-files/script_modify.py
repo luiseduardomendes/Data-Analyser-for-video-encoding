@@ -10,7 +10,7 @@ files = [f for f in listdir(dir) if path.isfile(path.join(dir, f)) and f[-4:] ==
 
 print(files)
 
-pattern = re.compile(r'(InputFile                     : )(.+)')
+pattern = re.compile(r'(InputFile                     : /home/video)(.+)')
 
 for file_ in files:
     data = open(file_, 'r')
@@ -18,7 +18,7 @@ for file_ in files:
     for line in data:
         check = pattern.findall(line)
         if len(check) > 0:
-            new_data.write('InputFile                     : /home/videos/'+check[0][1]+'\n')
+            new_data.write('InputFile                     : /'+check[0][1]+'\n')
         else:
             new_data.write(line)
     data.close()
