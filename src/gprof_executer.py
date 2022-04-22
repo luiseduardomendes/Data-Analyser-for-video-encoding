@@ -18,13 +18,13 @@ class gprof_executer:
         print(f'encoding {video_name} with cfg {cfg_encoder}, {cfg_video} and qp {qp}')
 
         self.mkdir_directories(out_dir, encoder, video_name)
-
-        os.system(  f'{bin_dir}EncoderAppStatic ' +
-                    f'-c {cfg_dir}{cfg_encoder} ' + # encoder 
-                    f'-c {cfg_video} ' + # video parameters 
-                    f'-b {out_dir}videos_bin/{video_name}.bin ' + # output binary video
+        
+        os.system(  f'\n\"{bin_dir}EncoderAppStatic\" ' +
+                    f'-c \"{cfg_dir}{cfg_encoder}\" ' + # encoder 
+                    f'-c \"{cfg_video}\" ' + # video parameters 
+                    f'-b \"{out_dir}videos_bin/{video_name}.bin\" ' + # output binary video
                     f'-q {qp} -f 32 {ts_status} --SIMD=SCALAR ' +
-                    f'>> {out_dir}/{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_{satd_settings}_exec.gplog & ')# +
+                    f'>> \"{out_dir}{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_{satd_settings}_exec.gplog\" &')# +
                     # 
                     #f'&& gprof {bin_dir}EncoderAppStatic gmon.out' +
                     #f'>> {out_dir}/{video_name}/{encoder}/gprof_log/log_{video_name}_qp{qp}_{encoder}_gprof.txt')
@@ -35,10 +35,11 @@ class gprof_executer:
     def mkdir_directories(self, out_dir: str, encoder: str, video_name: str):
         
         directories = [
-            f'{out_dir}/{video_name}/',
-            f'{out_dir}/{video_name}/{encoder}/',
-            f'{out_dir}/{video_name}/{encoder}/exec_log/',
-            f'{out_dir}/{video_name}/{encoder}/gprof_log/'
+            f'{out_dir}videos_bin/',
+            f'{out_dir}{video_name}/',
+            f'{out_dir}{video_name}/{encoder}/',
+            f'{out_dir}{video_name}/{encoder}/exec_log/',
+            f'{out_dir}{video_name}/{encoder}/gprof_log/'
         ]
 
         for d in directories:
