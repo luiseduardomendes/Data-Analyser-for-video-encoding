@@ -5,13 +5,13 @@ class fileSubs:
     def __init__(self, file_path, destiny_dir) -> None:
 
         if self.__verify_path__(file_path):
-            self.source_path = file_path
+            self.source_path = f'\"{file_path}\"'
         else:   
             raise Exception("invalid file path!")
 
         
         if self.__verify_dir__(destiny_dir):
-            self.destiny_path = destiny_dir
+            self.destiny_path = f'\"{destiny_dir}\"'
         else:   
             raise Exception("Destiny is not a directory!")
 
