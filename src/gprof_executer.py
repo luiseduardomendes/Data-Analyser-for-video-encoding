@@ -1,13 +1,16 @@
 import os
 import re
 
+# cfg_encoder parameter must be only the name, without path
+
 class gprof_executer:
     def __init__(self, cfg_encoder: str, cfg_video: str, video_name: str, qp: int, satd_settings: str):
         vtm_dir = "/home/luispmendes/VVCSoftware_VTM/"
 
+        satd = satd_settings.replace('(', '').replace(')', '').replace('/', '-')
         cfg_dir = vtm_dir + "cfg/"    
-        bin_dir = vtm_dir + "bin/"
-        out_dir = vtm_dir + "out/" + satd_settings + '/'
+        bin_dir = vtm_dir + "bin/" 
+        out_dir = vtm_dir + "out/" + satd + '/'
 
         ts_status = ''
         if (cfg_encoder == 'encoder_intra_vtm.cfg'):
@@ -16,6 +19,7 @@ class gprof_executer:
         encoder = self.encoder_used(cfg_encoder)
 
         print(f'encoding {video_name} with cfg {cfg_encoder}, {cfg_video} and qp {qp}')
+        print(f'satd used: {satd_settings}')
 
         self.mkdir_directories(out_dir, encoder, video_name)
         
@@ -24,7 +28,7 @@ class gprof_executer:
                     f'-c \"{cfg_video}\" ' + # video parameters 
                     f'-b \"{out_dir}videos_bin/{video_name}.bin\" ' + # output binary video
                     f'-q {qp} -f 32 {ts_status} --SIMD=SCALAR ' +
-                    f'>> \"{out_dir}{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_{satd_settings}_exec.gplog\" &')# +
+                    f'>> \"{out_dir}{video_name}/{encoder}/exec_log/log_{video_name}_qp{qp}_{encoder}_{satd}_exec.gplog\" &')# +
                     # 
                     #f'&& gprof {bin_dir}EncoderAppStatic gmon.out' +
                     #f'>> {out_dir}/{video_name}/{encoder}/gprof_log/log_{video_name}_qp{qp}_{encoder}_gprof.txt')
@@ -35,6 +39,7 @@ class gprof_executer:
     def mkdir_directories(self, out_dir: str, encoder: str, video_name: str):
         
         directories = [
+            f'{out_dir}',
             f'{out_dir}videos_bin/',
             f'{out_dir}{video_name}/',
             f'{out_dir}{video_name}/{encoder}/',

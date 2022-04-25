@@ -1,0 +1,18 @@
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/RdCost(4x4)-1-(8x8)-SAD.cpp
+
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/RdCost(4x4)-1-(8x8)-SAD.cpp
+
