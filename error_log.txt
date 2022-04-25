@@ -1,0 +1,763 @@
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 75%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/CABACWriter.cpp.o
+[ 75%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncAdaptiveLoopFilter.cpp.o
+[ 76%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncCu.cpp.o
+[ 76%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncGOP.cpp.o
+[ 77%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncHRD.cpp.o
+[ 77%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncLib.cpp.o
+[ 78%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncLibCommon.cpp.o
+[ 78%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncModeCtrl.cpp.o
+[ 79%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncReshape.cpp.o
+[ 79%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncSampleAdaptiveOffset.cpp.o
+[ 80%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncSlice.cpp.o
+[ 80%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/EncTemporalFilter.cpp.o
+[ 81%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/InterSearch.cpp.o
+[ 81%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/IntraSearch.cpp.o
+[ 82%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/NALwrite.cpp.o
+[ 82%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/RateCtrl.cpp.o
+[ 83%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/SEIEncoder.cpp.o
+[ 83%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/SEIwrite.cpp.o
+[ 84%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/VLCWriter.cpp.o
+[ 84%] Building CXX object source/Lib/EncoderLib/CMakeFiles/EncoderLib.dir/WeightPredAnalysis.cpp.o
+[ 85%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libEncoderLib.a
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Building CXX object source/App/DecoderAnalyserApp/CMakeFiles/DecoderAnalyserApp.dir/__/DecoderApp/DecApp.cpp.o
+[ 89%] Building CXX object source/App/DecoderAnalyserApp/CMakeFiles/DecoderAnalyserApp.dir/__/DecoderApp/DecAppCfg.cpp.o
+[ 89%] Building CXX object source/App/DecoderAnalyserApp/CMakeFiles/DecoderAnalyserApp.dir/__/DecoderApp/decmain.cpp.o
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+Scanning dependencies of target DecoderApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 92%] Building CXX object source/App/EncoderApp/CMakeFiles/EncoderApp.dir/EncApp.cpp.o
+[ 92%] Building CXX object source/App/EncoderApp/CMakeFiles/EncoderApp.dir/EncAppCfg.cpp.o
+[ 93%] Building CXX object source/App/EncoderApp/CMakeFiles/EncoderApp.dir/encmain.cpp.o
+[ 93%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 93%] Building CXX object source/App/SEIRemovalApp/CMakeFiles/SEIRemovalApp.dir/SEIRemovalApp.cpp.o
+[ 94%] Building CXX object source/App/SEIRemovalApp/CMakeFiles/SEIRemovalApp.dir/SEIRemovalAppCfg.cpp.o
+[ 94%] Building CXX object source/App/SEIRemovalApp/CMakeFiles/SEIRemovalApp.dir/seiremovalmain.cpp.o
+[ 95%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 95%] Building CXX object source/App/Parcat/CMakeFiles/parcat.dir/parcat.cpp.o
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+Scanning dependencies of target StreamMergeApp
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+[  1%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonLib.a
+[ 32%] Built target CommonLib
+Scanning dependencies of target CommonAnalyserLib
+[ 33%] Building CXX object source/Lib/CommonAnalyserLib/CMakeFiles/CommonAnalyserLib.dir/__/CommonLib/RdCost.cpp.o
+[ 33%] Linking CXX static library /home/luispmendes/VVCSoftware_VTM/lib/umake/gcc-9.4/x86_64/release/libCommonAnalyserLib.a
+[ 64%] Built target CommonAnalyserLib
+[ 69%] Built target DecoderAnalyserLib
+[ 74%] Built target DecoderLib
+[ 86%] Built target EncoderLib
+[ 88%] Built target Utilities
+[ 88%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderAnalyserApp
+[ 89%] Built target DecoderAnalyserApp
+[ 89%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/DecoderApp
+[ 91%] Built target DecoderApp
+[ 91%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/EncoderApp
+[ 93%] Built target EncoderApp
+[ 94%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SEIRemovalApp
+[ 95%] Built target SEIRemovalApp
+[ 96%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/parcat
+[ 96%] Built target parcat
+[ 97%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/StreamMergeApp
+[ 98%] Built target StreamMergeApp
+[ 98%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/BitstreamExtractorApp
+[ 99%] Built target BitstreamExtractorApp
+[ 99%] Linking CXX executable /home/luispmendes/VVCSoftware_VTM/bin/umake/gcc-9.4/x86_64/release/SubpicMergeApp
+[100%] Built target SubpicMergeApp
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+-- Setting up BBuildEnv 3.14.4.4
+-- bb_enable_warnings:  -> updating warnings flags: -Wall;-fdiagnostics-show-option;-Werror;-Wno-sign-compare;-Wno-class-memaccess
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/luispmendes/Data-Analyser-for-video-encoding
+Scanning dependencies of target CommonLib
+[  0%] Building CXX object source/Lib/CommonLib/CMakeFiles/CommonLib.dir/RdCost.cpp.o
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/RdCost(4x4)-1-(8x8)-SAD.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/RdCost(4x4)-1-(8x8)-5.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/RdCost(4x4)-1-(8x8)-4.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/RdCost(4x4)-1.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/VTM-4.1C-8.1C/RdCost(4x4)-1(8x8)-1.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/VTM-4.1C-8.2C/RdCost(4x4)-1 (8x8)-2.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-1/VTM-4.1C-8.3C/RdCost(4x4)-1 (8x8)-3.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/RdCost(4x4)-2-(8x8)-4.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/RdCost(4x4)-2-(8x8)-SAD.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/RdCost(4x4)-2-(8x8)-5.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/RdCost(4x4)-2.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/VTM-4.2C-8.2C/RdCost(4x4)-2 (8x8)-2.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/VTM-4.2C-8.1C/RdCost(4x4)-2 (8x8)-1.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-2/VTM-4.2C-8.3C/RdCost(4x4)-2 (8x8)-3.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)/VTM-8.5C/RdCost(8x8)-5.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)/VTM-8.SAD/RdCost(8x8)-SAD.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)/VTM-8.3C/RdCost(8x8)-3.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)/VTM-8.1C/RdCost(8x8)-1.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)/VTM-8.4C/RdCost(8x8)-4.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)/VTM-8.2C/RdCost(8x8)-2.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/RdCost(4x4)-3-(8x8)-5.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/RdCost(4x4)-3.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/RdCost(4x4)-3-(8x8)-SAD.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/RdCost(4x4)-3-(8x8)-4.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/VTM-4.3C-8.2C/RdCost(4x4)-3 (8x8)-2.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/VTM-4.3C-8.3C/RdCost(4x4)-3 (8x8)-3.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-3/VTM-4.3C-8.1C/RdCost(4x4)-3 (8x8)-1.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/RdCost(4x4)-SAD.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/RdCost(4x4)-SAD-(8x8)-SAD.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/RdCost(4x4)-SAD-(8x8)-5.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/RdCost(4x4)-SAD-(8x8)-4.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/VTM-4.SAD-8.2C/RdCost(4x4)-SAD (8x8)-2.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/VTM-4.SAD-8.3C/RdCost(4x4)-SAD (8x8)-3.cpp
+
+
+Arquivo: /home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(4x4)-SAD/VTM-4.SAD-8.1C/RdCost(4x4)-SAD (8x8)-1.cpp
+
