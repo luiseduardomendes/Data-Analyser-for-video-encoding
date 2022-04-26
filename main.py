@@ -13,39 +13,24 @@ out_videos_dir = '/home/luispmendes/VVCSoftware_VTM/out/'
 video_cfg = [f for f in listdir(cfg_videos_dir) if path.isfile(path.join(cfg_videos_dir, f)) and f[-4:] == '.cfg']
 
 quant_param = [
-        #22,
-        #27,
-        #32,
+        22,
+        27,
+        32,
         37]
 enc_cfgs = [
-    #'encoder_intra_vtm.cfg',
-    #'encoder_lowdelay_vtm.cfg',
+    'encoder_intra_vtm.cfg',
+    'encoder_lowdelay_vtm.cfg',
     'encoder_randomaccess_vtm.cfg'
 ]
 
-satd_settings = []
-for (dirpath, dirnames, filenames) in os.walk(satd_src):
-    satd_settings += [os.path.join(dirpath, file) for file in filenames]
-
 pattern = re.compile(r'^/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(.+)\.cpp$')
 
-for settings in satd_settings:
-    print("\nArquivo: " + settings, end='\n\n')
-    setting_name = str(re.findall(pattern, settings)[0]).replace('/', '-').replace('(', '-').replace(')', '-').replace(' ', '-')
+setting_name = '4x4-8x8-1'
 
-    if not os.path.isdir(out_videos_dir + setting_name):
-        os.mkdir(out_videos_dir + setting_name)
-
-    fileSubs(settings, satd_dir)
-    os.system("cd /home/luispmendes/VVCSoftware_VTM/build/")
-    os.system("cmake /home/luispmendes/VVCSoftware_VTM/ -DCMAKE_BUILD_TYPE=Release")
-    os.system("make")
-    os.system("cd /home/luispmendes/Data-Analyser-for-video-encoding/")
-
-    for video in video_cfg[0:2]:
-        for qp in quant_param:
-            for cfg in enc_cfgs:
-                gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, setting_name)
+for video in video_cfg[0:2]:
+    for qp in quant_param:
+        for cfg in enc_cfgs:
+            gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, setting_name)
 
 
 
