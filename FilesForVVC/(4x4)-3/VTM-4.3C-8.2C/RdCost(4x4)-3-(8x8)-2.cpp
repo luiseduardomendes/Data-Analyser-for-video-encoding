@@ -2150,7 +2150,7 @@ Distortion RdCost::xCalcHADs4x4( const Pel *piOrg, const Pel *piCur, int iStride
 {
   int k;
   Distortion satd = 0;
-  TCoeff diff[16], m[16], d[16];
+  TCoeff diff[16], m[16] d[16];
 
   CHECK( iStep != 1, "Invalid step" );
   for( k = 0; k < 16; k+=4 )
@@ -2182,60 +2182,9 @@ Distortion RdCost::xCalcHADs4x4( const Pel *piOrg, const Pel *piCur, int iStride
   m[14] = diff[ 2] - diff[14];
   m[15] = diff[ 3] - diff[15];
 
-  d[ 0] = m[ 0] + m[ 4];
-  d[ 1] = m[ 1] + m[ 5];
-  d[ 2] = m[ 2] + m[ 6];
-  d[ 3] = m[ 3] + m[ 7];
-  d[ 4] = m[ 8] + m[12];
-  d[ 5] = m[ 9] + m[13];
-  d[ 6] = m[10] + m[14];
-  d[ 7] = m[11] + m[15];
-  d[ 8] = m[ 0] - m[ 4];
-  d[ 9] = m[ 1] - m[ 5];
-  d[10] = m[ 2] - m[ 6];
-  d[11] = m[ 3] - m[ 7];
-  d[12] = m[12] - m[ 8];
-  d[13] = m[13] - m[ 9];
-  d[14] = m[14] - m[10];
-  d[15] = m[15] - m[11];
-
-  m[ 0] = d[ 0] + d[ 3];
-  m[ 1] = d[ 1] + d[ 2];
-  m[ 2] = d[ 1] - d[ 2];
-  m[ 3] = d[ 0] - d[ 3];
-  m[ 4] = d[ 4] + d[ 7];
-  m[ 5] = d[ 5] + d[ 6];
-  m[ 6] = d[ 5] - d[ 6];
-  m[ 7] = d[ 4] - d[ 7];
-  m[ 8] = d[ 8] + d[11];
-  m[ 9] = d[ 9] + d[10];
-  m[10] = d[ 9] - d[10];
-  m[11] = d[ 8] - d[11];
-  m[12] = d[12] + d[15];
-  m[13] = d[13] + d[14];
-  m[14] = d[13] - d[14];
-  m[15] = d[12] - d[15];
-
-  d[ 0] = m[ 0] + m[ 1];
-  d[ 1] = m[ 0] - m[ 1];
-  d[ 2] = m[ 2] + m[ 3];
-  d[ 3] = m[ 3] - m[ 2];
-  d[ 4] = m[ 4] + m[ 5];
-  d[ 5] = m[ 4] - m[ 5];
-  d[ 6] = m[ 6] + m[ 7];
-  d[ 7] = m[ 7] - m[ 6];
-  d[ 8] = m[ 8] + m[ 9];
-  d[ 9] = m[ 8] - m[ 9];
-  d[10] = m[10] + m[11];
-  d[11] = m[11] - m[10];
-  d[12] = m[12] + m[13];
-  d[13] = m[12] - m[13];
-  d[14] = m[14] + m[15];
-  d[15] = m[15] - m[14];
-
   for (k=0; k<16; ++k)
   {
-    satd += abs(d[k]);
+    satd += abs(m[k]);
   }
 
 #if JVET_R0164_MEAN_SCALED_SATD
@@ -2249,9 +2198,9 @@ Distortion RdCost::xCalcHADs4x4( const Pel *piOrg, const Pel *piCur, int iStride
 
 Distortion RdCost::xCalcHADs8x8( const Pel *piOrg, const Pel *piCur, int iStrideOrg, int iStrideCur, int iStep )
 {
-  int k, i;
+  int k, i, j, jj;
   Distortion sad = 0;
-  TCoeff diff[64], m2[16];
+  TCoeff diff[64], m1[8][8], m2[8][8], m3[8][8];
   CHECK( iStep != 1, "Invalid step" );
   for( k = 0; k < 64; k += 8 )
   {
@@ -2268,16 +2217,65 @@ Distortion RdCost::xCalcHADs8x8( const Pel *piOrg, const Pel *piCur, int iStride
     piOrg += iStrideOrg;
   }
 
-  for (i = 0; i < 64; i++)
+  //horizontal
+  for (j=0; j < 8; j++)
   {
-    sad += abs(diff[i]);
+    jj = j << 3;
+    m2[j][0] = diff[jj  ] + diff[jj+4];
+    m2[j][1] = diff[jj+1] + diff[jj+5];
+    m2[j][2] = diff[jj+2] + diff[jj+6];
+    m2[j][3] = diff[jj+3] + diff[jj+7];
+    m2[j][4] = diff[jj  ] - diff[jj+4];
+    m2[j][5] = diff[jj+1] - diff[jj+5];
+    m2[j][6] = diff[jj+2] - diff[jj+6];
+    m2[j][7] = diff[jj+3] - diff[jj+7];
+
+    m1[j][0] = m2[j][0] + m2[j][2];
+    m1[j][1] = m2[j][1] + m2[j][3];
+    m1[j][2] = m2[j][0] - m2[j][2];
+    m1[j][3] = m2[j][1] - m2[j][3];
+    m1[j][4] = m2[j][4] + m2[j][6];
+    m1[j][5] = m2[j][5] + m2[j][7];
+    m1[j][6] = m2[j][4] - m2[j][6];
+    m1[j][7] = m2[j][5] - m2[j][7];
+
+    m2[j][0] = m1[j][0] + m1[j][1];
+    m2[j][1] = m1[j][0] - m1[j][1];
+    m2[j][2] = m1[j][2] + m1[j][3];
+    m2[j][3] = m1[j][2] - m1[j][3];
+    m2[j][4] = m1[j][4] + m1[j][5];
+    m2[j][5] = m1[j][4] - m1[j][5];
+    m2[j][6] = m1[j][6] + m1[j][7];
+    m2[j][7] = m1[j][6] - m1[j][7];
+  }
+
+  //vertical
+  for (i=0; i < 8; i++)
+  {
+    m3[0][i] = m2[0][i] + m2[4][i];
+    m3[1][i] = m2[1][i] + m2[5][i];
+    m3[2][i] = m2[2][i] + m2[6][i];
+    m3[3][i] = m2[3][i] + m2[7][i];
+    m3[4][i] = m2[0][i] - m2[4][i];
+    m3[5][i] = m2[1][i] - m2[5][i];
+    m3[6][i] = m2[2][i] - m2[6][i];
+    m3[7][i] = m2[3][i] - m2[7][i];
+
+  }
+
+  for (i = 0; i < 8; i++)
+  {
+    for (j = 0; j < 8; j++)
+    {
+      sad += abs(m3[i][j]);
+    }
   }
 
 #if JVET_R0164_MEAN_SCALED_SATD
   sad -= abs(m2[0][0]);
   sad += abs(m2[0][0]) >> 2;
 #endif
-  //sad  = ((sad+2)>>2);
+  sad  = ((sad+2)>>2);
 
   return sad;
 }
