@@ -2150,7 +2150,7 @@ Distortion RdCost::xCalcHADs4x4( const Pel *piOrg, const Pel *piCur, int iStride
 {
   int k;
   Distortion satd = 0;
-  TCoeff diff[16], d[16];
+  TCoeff diff[16];
 
   CHECK( iStep != 1, "Invalid step" );
   for( k = 0; k < 16; k+=4 )
@@ -2171,8 +2171,8 @@ Distortion RdCost::xCalcHADs4x4( const Pel *piOrg, const Pel *piCur, int iStride
   }
 
 #if JVET_R0164_MEAN_SCALED_SATD
-  satd -= abs(d[0]);
-  satd += abs(d[0]) >> 2;
+  // satd -= abs(d[0]);
+  // satd += abs(d[0]) >> 2;
 #endif
   satd  = ((satd+1)>>1);
 
