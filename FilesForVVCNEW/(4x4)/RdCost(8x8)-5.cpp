@@ -2251,7 +2251,7 @@ Distortion RdCost::xCalcHADs8x8( const Pel *piOrg, const Pel *piCur, int iStride
 {
   int k, i, j;
   Distortion sad = 0;
-  TCoeff diff[64], m2[8][8];
+  TCoeff diff[64];
   CHECK( iStep != 1, "Invalid step" );
   for( k = 0; k < 64; k += 8 )
   {
@@ -2277,8 +2277,8 @@ Distortion RdCost::xCalcHADs8x8( const Pel *piOrg, const Pel *piCur, int iStride
   }
 
 #if JVET_R0164_MEAN_SCALED_SATD
-  sad -= abs(m2[0][0]);
-  sad += abs(m2[0][0]) >> 2;
+  // sad -= abs(m2[0][0]);
+  // sad += abs(m2[0][0]) >> 2;
 #endif
   sad  = ((sad+2)>>2);
 
