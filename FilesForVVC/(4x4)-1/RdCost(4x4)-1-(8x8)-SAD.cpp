@@ -2257,8 +2257,8 @@ Distortion RdCost::xCalcHADs8x8( const Pel *piOrg, const Pel *piCur, int iStride
   }
 
 #if JVET_R0164_MEAN_SCALED_SATD
-  sad -= abs(diff[0][0]);
-  sad += abs(diff[0][0]) >> 2;
+  sad -= abs(diff[0]);
+  sad += abs(diff[0]) >> 2;
 #endif
   //sad  = ((sad+2)>>2);
 

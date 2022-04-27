@@ -2249,7 +2249,7 @@ Distortion RdCost::xCalcHADs4x4( const Pel *piOrg, const Pel *piCur, int iStride
 
 Distortion RdCost::xCalcHADs8x8( const Pel *piOrg, const Pel *piCur, int iStrideOrg, int iStrideCur, int iStep )
 {
-  int k, i;
+  int k, i, j;
   Distortion sad = 0;
   TCoeff diff[64];
   CHECK( iStep != 1, "Invalid step" );
