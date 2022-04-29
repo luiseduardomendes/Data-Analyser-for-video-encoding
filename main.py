@@ -1,12 +1,12 @@
 import src.gprof_out_manipulation as gp
+import sys
 import os
-import re
 from os import path, listdir, system
 from src.gprof_executer import gprof_executer as gp_exe
 from fileSubstitution import fileSubs
 
 cfg_videos_dir = '/home/luispmendes/VVCSoftware_VTM/cfg-files/'
-satd_src = '/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/'
+satd_src = '/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVCNEW/'
 satd_dir = '/home/luispmendes/VVCSoftware_VTM/source/Lib/CommonLib/'
 out_videos_dir = '/home/luispmendes/VVCSoftware_VTM/out/'
 
@@ -23,11 +23,10 @@ enc_cfgs = [
     'encoder_randomaccess_vtm.cfg'
 ]
 
-pattern = re.compile(r'^/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVC/(.+)\.cpp$')
 
-setting_name = '4x4-8x8-1'
+setting_name = sys.argv[2]
 
-for video in video_cfg[0:2]:
+for video in video_cfg:
     for qp in quant_param:
         for cfg in enc_cfgs:
             gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, setting_name)
