@@ -5,7 +5,7 @@ import numpy as np
 from pprint import pprint
 
 class gprofLogManip():
-    def __init__(self, datafile: str) -> None:
+    def __init__(self, datafile: str, filename: str, qp: int) -> None:
         # verify if 
         if len(re.findall(r'(.+)(?=(?:\.txt$)|(?:\.gplog$))', datafile, flags=re.M)) > 0:
             with open(datafile) as f:
@@ -29,9 +29,9 @@ class gprofLogManip():
                 log = _data_[0]
                 for i, key in enumerate(data_dict.keys()):
                     if key == 'fileName':
-                        data_dict[key] = re.findall(r'AI/(.+)_QP\d{2}.txt', datafile)[0]
+                        data_dict[key] = filename
                     elif key == 'qp':
-                        data_dict[key] = int(re.findall(r'AI/.+_QP(\d{2}).txt', datafile)[0])
+                        data_dict[key] = qp
                     else:
                         try:
                             data_dict[key] = int(log[i-2])

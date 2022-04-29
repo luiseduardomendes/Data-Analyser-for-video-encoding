@@ -1,0 +1,5 @@
+fileName,qp,frames,bitrate,Y_PSNR,U_PSNR,V_PSNR,YUV_PSNR
+BasketballDrive_intra,37,32,5491.2875,37.0455,41.758,41.8323,38.1321
+BasketballDrive_intra,22,32,49188.1875,41.7551,45.6793,47.7237,42.8542
+BasketballDrive_intra,27,32,18401.225,39.8801,44.4309,45.6484,41.0187
+BasketballDrive_intra,32,32,9616.625,38.6014,43.0569,43.5688,39.682
