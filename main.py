@@ -24,7 +24,7 @@ enc_cfgs = [
 ]
 
 
-setting_name = sys.argv[2]
+setting_name = sys.argv[1]
 
 for video in video_cfg:
     for qp in quant_param:
