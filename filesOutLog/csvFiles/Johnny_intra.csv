@@ -1,5 +1,0 @@
-fileName,qp,frames,bitrate,Y_PSNR,U_PSNR,V_PSNR,YUV_PSNR
-<class 'str'>,<class 'int'>,<class 'int'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>
-<class 'str'>,<class 'int'>,<class 'int'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>
-<class 'str'>,<class 'int'>,<class 'int'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>
-<class 'str'>,<class 'int'>,<class 'int'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>,<class 'float'>

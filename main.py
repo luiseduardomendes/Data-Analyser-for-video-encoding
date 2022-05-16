@@ -1,9 +1,9 @@
-import src.gprof_out_manipulation as gp
+import source.gprof_out_manipulation as gp
 import sys
 import os
 from os import path, listdir, system
-from src.gprof_executer import gprof_executer as gp_exe
-from fileSubstitution import fileSubs
+from source.gprof_executer import gprof_executer as gp_exe
+from source.fileSubstitution import fileSubs
 
 cfg_videos_dir = '/home/luispmendes/VVCSoftware_VTM/cfg-files/'
 satd_src = '/home/luispmendes/Data-Analyser-for-video-encoding/FilesForVVCNEW/'
@@ -30,58 +30,3 @@ for video in video_cfg:
     for qp in quant_param:
         for cfg in enc_cfgs:
             gp_exe(cfg, cfg_videos_dir+video, video[:-4], qp, setting_name)
-
-
-
-
-
-
-
-
-
-
-
-
-'''
-'''
-
-
-
-'''
-    # convert the gprof file into a csv file
-    # this can be usefull to use the same data after, so, 
-    # its just necessary to read the gprof output file once
-    # cause its run is very slow in comparison to the csv read
-    gp_to_csv = gp.GprofToCSV(path_input=video)
-    gp_to_csv.read_gprof_out()
-    gp_to_csv.convert_data_frame_into_CSV()
-    gp_to_csv.convert_data_frame_into_excel()
-
-    gp_to_csv.data_frame_into_lists_for_plotter()
-
-    funct = gp_to_csv.dict_data_by_class['class'][:100]
-    percentTime = gp_to_csv.dict_data_by_class['percentageTime'][:100]
-
-    plotter = tbp()
-    plotter.barh(percentTime, funct);
-    plotter.show()
-
-    plotter = plt()
-    plotter.insertLists(percentTime, 'percentageTime', funct, 'function')
-    plotter.setOutputFileName(gp_to_csv.get_output_path(), quant_param[0], video_cfgs[0])
-    plotter.plotBarhGraph()
-    '''
-
-
-# testes nao utilizados
-'''gp_exe(enc_cfgs[1], cfg_videos_dir + video_cfg[5], video_cfg[5][:-4], quant_param[3], 10)
-
-gp_to_csv = gp.GprofToCSV(path_input='/home/luispmendes/VVCSoftware_VTM/out/logs_gprof/gprof_log_'+video_cfg[5][:-4]+'.txt')
-gp_to_csv.read_gprof_out()
-gp_to_csv.convert_data_frame_into_CSV()
-
-gp_exe(enc_cfgs[1], cfg_videos_dir + video_cfg[2], video_cfg[2][:-4], quant_param[3], 10)
-
-gp_to_csv = gp.GprofToCSV(path_input='/home/luispmendes/VVCSoftware_VTM/out/logs_gprof/gprof_log_'+video_cfg[2][:-4]+'.txt')
-gp_to_csv.read_gprof_out()
-gp_to_csv.convert_data_frame_into_CSV()'''
