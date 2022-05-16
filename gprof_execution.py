@@ -1,9 +1,12 @@
 import os
+import re
+
+pattern = re.compile(r'^FilesForVVC/(.+)$')
 
 exec_buffer = '.execution_buffer.cache'
 
 with open(exec_buffer, 'r') as f:
-    file = f.readline()
+    file = pattern.findall(f.readline())[0]
     with open('temp' + exec_buffer, 'w') as out:
         for line in f:
             out.write(line)
