@@ -131,30 +131,13 @@ class GprofOutManip:
 
     def group_by_class(self):
         try:
-            classes_list = [c for c in list(self.data_frame['class'])]
-            classes_list = list(set(classes_list))
+            df = self.data_frame
+            df.drop('function', inplace=True, axis=1)
         except:
             raise Exception('Unnidentified Error')
 
-        dict_classes = {}
-        dict_classes['class'] = classes_list
-        for p in self.parameters_gprof:
-            if p != 'function' and p != 'class':
-                dict_classes[p] = pd.Series(np.zeros(len(classes_list)))
-        for i in list(self.data_frame.index):
-            for p in dict_classes.keys():
-                if p != 'class':
-                    _class = self.data_frame['class'][i]
-                    i2 = list(dict_classes['class']).index(_class)
-                    try:
-                        num = float(self.data_frame[p][i])
-                    except:
-                        num = 0
-                    dict_classes[p][i2] += num
-                    
-                    
-
-        self.df_class = pd.DataFrame(dict_classes)
+        self.data_frame_by_class = pd.pivot_table(df, index='class', aggfunc='sum')
+        return self.data_frame_by_class
         
 
         
