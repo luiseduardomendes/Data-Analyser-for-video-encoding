@@ -15,12 +15,12 @@ def file_subs(file_path, destiny_dir) -> None:
 
     system(f"cp \"{source_path}\" \"{destiny_path}RdCost.cpp\"") 
 
-def __verify_path__(self, path:str) -> bool:
+def __verify_path__(path:str) -> bool:
     if isfile(path):
         return True
     return False
 
-def __verify_dir__(self, dir1 : str) -> bool:
+def __verify_dir__(dir1 : str) -> bool:
     if isdir(dir1):
         return True
     return False

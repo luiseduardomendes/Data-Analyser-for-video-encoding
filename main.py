@@ -4,9 +4,9 @@ from source.gprof_executer import gprof_executer as gp_exe
 import pandas as pd
 
 # create a pandas series to generalize the paths used
-with pd.read_csv('server_paths.csv') as temp:
-    sv_path = temp['path']
-    sv_path = sv_path.set_axis(temp['dir'])
+temp =  pd.read_csv('source/server_paths.csv')
+sv_path = temp['path']
+sv_path = sv_path.set_axis(temp['dir'])
 
 cfg_videos_dir = sv_path['vtm'] + '/cfg-files/'
 satd_src = sv_path['repo'] + '/FilesForVVC/'
