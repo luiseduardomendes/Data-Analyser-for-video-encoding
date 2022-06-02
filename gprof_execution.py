@@ -16,4 +16,6 @@ with open(exec_buffer, 'r') as f:
 os.system('rm {}'.format(exec_buffer))
 os.system('mv {} {}'.format('./temp'+exec_buffer, './'+exec_buffer))
 
-os.system('python3 main.py "{}"'.format(file))
+os.system('cd /home/luispmendes/VVCSoftware_VTM/source/Lib/CommonLib/') 
+os.system('make')
+os.system('python3 /home/luispmendes/Data-Analyser-for-video-encoding/main.py "{}"'.format(file))
