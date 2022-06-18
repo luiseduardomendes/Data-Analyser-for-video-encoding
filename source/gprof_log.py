@@ -1,7 +1,8 @@
 import re
 import pandas as pd
+import numpy as np
 
-def read_log(file : str, qp : int) -> pd.DataFrame:
+def read_log(file : str, name : str, qp : int, encoder : str) -> pd.DataFrame:
     
     data_dict = {
         'bitrate' : float,
@@ -10,6 +11,7 @@ def read_log(file : str, qp : int) -> pd.DataFrame:
         'V_PSNR' : float,
         'YUV_PSNR' : float,
         'fileName' : str,
+        'encoder' : str,
         'qp' : int
     }
     
@@ -27,26 +29,43 @@ def read_log(file : str, qp : int) -> pd.DataFrame:
                 for key in data_dict.keys():
                     data_dict[key] = []
 
-                for i, key in enumerate(list(data_dict.keys())[:-2]):
+                for i, key in enumerate(list(data_dict.keys())[:-3]):
                     try:
                         data_dict[key].append(int(log[i]))
                     except:
                         data_dict[key].append(float(log[i]))
                 
-                data_dict['fileName'].append(file)
+                data_dict['fileName'].append(name)
                 data_dict['qp'].append(qp)
+                data_dict['encoder'].append(encoder)
 
-            elif len(check) > 1:
-                raise Exception('File has more than one log')
             else:
-                raise Exception('File doesnt have a log')
+                return pd.DataFrame({
+                    'bitrate' : [0],
+                    'Y_PSNR' : [0],
+                    'U_PSNR' : [0],
+                    'V_PSNR' : [0],
+                    'YUV_PSNR' : [0],
+                    'fileName' : [name],
+                    'encoder' : [encoder],
+                    'qp' : [qp]
+                })
 
             f.close()
         
         return pd.DataFrame(data_dict)
 
     else: 
-        raise Exception('File is not a .txt or a .gplog')
+        return pd.DataFrame({
+            'bitrate' : [0],
+            'Y_PSNR' : [0],
+            'U_PSNR' : [0],
+            'V_PSNR' : [0],
+            'YUV_PSNR' : [0],
+            'fileName' : [name],
+            'encoder' : [encoder],
+            'qp' : [qp]
+        })
     
     
 def group_by_filename(data_set : list) -> pd.DataFrame:
@@ -56,5 +75,36 @@ def group_by_filename(data_set : list) -> pd.DataFrame:
         output = pd.concat([output, data], ignore_index=True)
 
     output = output.sort_values(by='qp').reset_index(drop=True)
+
+    return output
+
+
+def group_by_filename_2(data_set : list) -> dict:
+    names = []
+
+    output = {}
+
+    def create_df() -> pd.DataFrame:
+        return pd.DataFrame({
+            'bitrate' : [],
+            'Y_PSNR' : [],
+            'U_PSNR' : [],
+            'V_PSNR' : [],
+            'YUV_PSNR' : [],
+            'fileName' : [],
+            'encoder' : [],
+            'qp' : []
+        })
+
+    for df in data_set:
+        name = df['fileName'][0] + '_' + df['encoder'][0]
+        if not name in names:
+            output[name] = create_df()
+            names.append(name)
+
+        output[name] = pd.concat([output[name], df], ignore_index=True)
+        
+    for key in output.keys():
+        output[key] = output[key].sort_values(by='qp').reset_index(drop=True)
 
     return output

@@ -1,0 +1,5 @@
+,bitrate,Y_PSNR,U_PSNR,V_PSNR,YUV_PSNR,fileName,encoder,qp
+0,0.0,0.0,0.0,0.0,0.0,Johnny,randomaccess,22
+1,0.0,0.0,0.0,0.0,0.0,Johnny,randomaccess,27
+2,0.0,0.0,0.0,0.0,0.0,Johnny,randomaccess,32
+3,0.0,0.0,0.0,0.0,0.0,Johnny,randomaccess,37

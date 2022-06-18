@@ -2,7 +2,7 @@ from logging import raiseExceptions
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-import src.gprof_log_manipulation as gplog
+import source.gprof_log_manipulation as gplog
 
 
 mnemonics = {
