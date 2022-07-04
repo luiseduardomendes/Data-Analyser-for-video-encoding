@@ -9,3 +9,40 @@ FAST TOOL CFG: LCTUFast:1 FastMrg:1 PBIntraFast:1 IMV4PelFast:1 MTSMaxCand: 3(in
  started @ Sat Jun 18 13:03:10 2022
 POC    0 LId:  0 TId: 0 ( IDR_N_LP, I-SLICE, QP 31 )      64584 bits [Y 35.5424 dB    U 37.7288 dB    V 38.3752 dB] [ET   165 ] [L0] [L1]
 POC    1 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5176 bits [Y 32.1880 dB    U 36.9243 dB    V 37.4000 dB] [ET   113 ] [L0 0] [L1 0c]
+POC    2 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6272 bits [Y 31.8474 dB    U 36.5175 dB    V 36.9756 dB] [ET   178 ] [L0 1 0] [L1 1c 0]
+POC    3 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5200 bits [Y 31.1142 dB    U 36.2371 dB    V 36.4604 dB] [ET   204 ] [L0 2 1 0] [L1 2c 1 0]
+POC    4 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6544 bits [Y 31.1911 dB    U 36.2414 dB    V 36.5173 dB] [ET   237 ] [L0 3 2 1 0] [L1 3c 2 1 0]
+POC    5 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4864 bits [Y 30.7555 dB    U 35.8660 dB    V 36.1581 dB] [ET   236 ] [L0 4 3 2 0] [L1 4c 3 2 0]
+POC    6 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6512 bits [Y 30.9235 dB    U 35.4926 dB    V 35.7354 dB] [ET    83 ] [L0 5 4 3 0] [L1 5c 4 3 0]
+POC    7 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5280 bits [Y 30.5229 dB    U 35.3758 dB    V 35.5176 dB] [ET   183 ] [L0 6 5 4 0] [L1 6c 5 4 0]
+POC    8 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 33 )      27200 bits [Y 33.9617 dB    U 36.5188 dB    V 36.8077 dB] [ET   336 ] [L0 7 6 5 0] [L1 7c 6 5 0]
+POC    9 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4480 bits [Y 31.7571 dB    U 36.1132 dB    V 36.1975 dB] [ET   146 ] [L0 8 7 6 0] [L1 8c 7 6 0]
+POC   10 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6648 bits [Y 31.3739 dB    U 35.8769 dB    V 35.9539 dB] [ET   180 ] [L0 9 8 7 0] [L1 9c 8 7 0]
+POC   11 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5328 bits [Y 30.8573 dB    U 35.6282 dB    V 35.7221 dB] [ET   152 ] [L0 10 9 8 0] [L1 10c 9 8 0]
+POC   12 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6888 bits [Y 31.1230 dB    U 35.6187 dB    V 35.4113 dB] [ET   221 ] [L0 11 10 8 0] [L1 11c 10 8 0]
+POC   13 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5192 bits [Y 30.5698 dB    U 35.4442 dB    V 35.3265 dB] [ET   183 ] [L0 12 11 8 0] [L1 12c 11 8 0]
+POC   14 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6616 bits [Y 30.8554 dB    U 35.3730 dB    V 35.4315 dB] [ET   220 ] [L0 13 12 8 0] [L1 13c 12 8 0]
+POC   15 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4584 bits [Y 30.4555 dB    U 35.2554 dB    V 35.4051 dB] [ET   182 ] [L0 14 13 8 0] [L1 14c 13 8 0]
+POC   16 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 33 )      25568 bits [Y 34.0061 dB    U 36.5923 dB    V 36.6148 dB] [ET   290 ] [L0 15 14 8 0] [L1 15c 14 8 0]
+POC   17 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       3672 bits [Y 32.0220 dB    U 35.9878 dB    V 36.1328 dB] [ET   146 ] [L0 16 15 8 0] [L1 16c 15 8 0]
+POC   18 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       5424 bits [Y 31.6118 dB    U 35.7016 dB    V 35.9050 dB] [ET   123 ] [L0 17 16 8 0] [L1 17c 16 8 0]
+POC   19 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4600 bits [Y 31.0606 dB    U 35.5343 dB    V 35.6029 dB] [ET   182 ] [L0 18 16 8 0] [L1 18c 16 8 0]
+POC   20 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       5968 bits [Y 31.0888 dB    U 35.5043 dB    V 35.4503 dB] [ET   184 ] [L0 19 16 8 0] [L1 19c 16 8 0]
+POC   21 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4680 bits [Y 30.6745 dB    U 35.3548 dB    V 35.4210 dB] [ET   181 ] [L0 20 16 8 0] [L1 20c 16 8 0]
+POC   22 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6176 bits [Y 30.8472 dB    U 35.4122 dB    V 35.4302 dB] [ET   185 ] [L0 21 16 8 0] [L1 21c 16 8 0]
+POC   23 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4872 bits [Y 30.4169 dB    U 35.4728 dB    V 35.3992 dB] [ET   163 ] [L0 22 16 8 0] [L1 22c 16 8 0]
+POC   24 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 33 )      26472 bits [Y 33.7754 dB    U 36.6758 dB    V 36.7069 dB] [ET   303 ] [L0 23 16 8 0] [L1 23c 16 8 0]
+POC   25 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4304 bits [Y 31.6944 dB    U 36.1944 dB    V 35.8961 dB] [ET   146 ] [L0 24 16 8 0] [L1 24c 16 8 0]
+POC   26 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       5920 bits [Y 31.4304 dB    U 36.0349 dB    V 35.7080 dB] [ET   174 ] [L0 25 24 16 8] [L1 25c 24 16 8]
+POC   27 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       4856 bits [Y 30.8804 dB    U 35.9731 dB    V 35.6132 dB] [ET   164 ] [L0 26 24 16 8] [L1 26c 24 16 8]
+POC   28 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6672 bits [Y 30.9428 dB    U 35.8777 dB    V 35.3665 dB] [ET   173 ] [L0 27 24 16 8] [L1 27c 24 16 8]
+POC   29 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5080 bits [Y 30.3209 dB    U 35.8032 dB    V 35.4758 dB] [ET   176 ] [L0 28 24 16 8] [L1 28c 24 16 8]
+POC   30 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 39 )       6976 bits [Y 30.4866 dB    U 35.7004 dB    V 35.3380 dB] [ET   201 ] [L0 29 24 16 8] [L1 29c 24 16 8]
+POC   31 LId:  0 TId: 0 ( TRAIL, B-SLICE, QP 40 )       5024 bits [Y 30.1472 dB    U 35.7773 dB    V 35.3971 dB] [ET   144 ] [L0 30 24 16 8] [L1 30c 24 16 8]
+
+LayerId  0
+	Total Frames |  Bitrate      Y-PSNR   U-PSNR   V-PSNR   YUV-PSNR 
+	32           a  279.0300     31.4514  35.9315  35.9642  32.3731  
+
+ finished @ Sat Jun 18 14:42:59 2022
+ Total Time:     2107.260 sec. [user]     5988.890 sec. [elapsed]

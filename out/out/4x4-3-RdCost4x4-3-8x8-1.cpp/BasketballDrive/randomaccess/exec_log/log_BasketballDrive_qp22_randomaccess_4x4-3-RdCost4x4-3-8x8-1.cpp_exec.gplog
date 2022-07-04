@@ -6,3 +6,43 @@ TOOL CFG: LFNST:1 MMVD:1 Affine:1 AffineType:1 PROF:1 SbTMVP:1 DualITree:1 IMV:1
 FAST TOOL CFG: LCTUFast:1 FastMrg:1 PBIntraFast:1 IMV4PelFast:1 MTSMaxCand: 4(intra) 4(inter) ISPFast:0 FastLFNST:0 AMaxBT:1 E0023FastEnc:1 ContentBasedFastQtbt:0 UseNonLinearAlfLuma:1 UseNonLinearAlfChroma:1 MaxNumAlfAlternativesChroma:8 FastMIP:0 FastLocalDualTree:1 RPR:0 TemporalFilter:1 SEI CTI:0 
 
 
+ started @ Sat Jun 18 13:03:10 2022
+POC    0 LId:  0 TId: 0 ( IDR_N_LP, I-SLICE, QP 19 )     893168 bits [Y 40.9260 dB    U 45.6159 dB    V 47.5895 dB] [ET  3772 ] [L0] [L1]
+POC   16 LId:  0 TId: 1 ( STSA, B-SLICE, QP 22 )     427584 bits [Y 40.4030 dB    U 45.5255 dB    V 47.4892 dB] [ET  8213 ] [L0 0] [L1 0c]
+POC    8 LId:  0 TId: 2 ( STSA, B-SLICE, QP 23 )     328568 bits [Y 40.2881 dB    U 45.4832 dB    V 47.2973 dB] [ET  4976 ] [L0 0 16] [L1 16c 0]
+POC    4 LId:  0 TId: 3 ( STSA, B-SLICE, QP 26 )     224960 bits [Y 40.1904 dB    U 45.3816 dB    V 47.1614 dB] [ET  3187 ] [L0 0 8] [L1 8c 16]
+POC    2 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )     107312 bits [Y 39.8719 dB    U 45.3502 dB    V 46.9264 dB] [ET  2032 ] [L0 0 4] [L1 4c 8]
+POC    1 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      66008 bits [Y 39.8239 dB    U 45.4339 dB    V 46.9976 dB] [ET  1291 ] [L0 0 2] [L1 2c 4]
+POC    3 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      67480 bits [Y 39.6621 dB    U 45.2155 dB    V 46.6627 dB] [ET  1203 ] [L0 2c 0] [L1 4 8]
+POC    6 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )     117104 bits [Y 39.6702 dB    U 45.2127 dB    V 46.6605 dB] [ET  1945 ] [L0 4c 0] [L1 8 16]
+POC    5 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      73000 bits [Y 39.5459 dB    U 45.1484 dB    V 46.5548 dB] [ET  1290 ] [L0 4 0] [L1 6c 8]
+POC    7 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      69480 bits [Y 39.5749 dB    U 45.2349 dB    V 46.6233 dB] [ET  1290 ] [L0 6c 4] [L1 8 16]
+POC   12 LId:  0 TId: 3 ( STSA, B-SLICE, QP 26 )     207376 bits [Y 40.1852 dB    U 45.3668 dB    V 47.1637 dB] [ET  1952 ] [L0 8c 0] [L1 16 8]
+POC   10 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )     101088 bits [Y 39.6743 dB    U 45.2102 dB    V 46.7692 dB] [ET  1036 ] [L0 8 0] [L1 12c 16]
+POC    9 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      65344 bits [Y 39.5903 dB    U 45.2244 dB    V 46.6857 dB] [ET   754 ] [L0 8 0] [L1 10c 12]
+POC   11 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      55536 bits [Y 39.6204 dB    U 45.1788 dB    V 46.6540 dB] [ET   763 ] [L0 10c 8] [L1 12 16]
+POC   14 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )      85576 bits [Y 39.8434 dB    U 45.3098 dB    V 46.9316 dB] [ET   932 ] [L0 12c 8] [L1 16 12]
+POC   13 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      48552 bits [Y 39.6901 dB    U 45.2150 dB    V 46.7633 dB] [ET   707 ] [L0 12 8] [L1 14c 16]
+POC   15 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      50528 bits [Y 39.8151 dB    U 45.3211 dB    V 46.9733 dB] [ET   691 ] [L0 14c 12] [L1 16 14]
+POC   24 LId:  0 TId: 2 ( STSA, B-SLICE, QP 23 )     369296 bits [Y 40.3206 dB    U 45.2329 dB    V 47.0719 dB] [ET  2252 ] [L0 16 0] [L1 16c 0]
+POC   20 LId:  0 TId: 3 ( STSA, B-SLICE, QP 26 )     178936 bits [Y 40.2127 dB    U 45.3129 dB    V 47.1012 dB] [ET  1526 ] [L0 16 0] [L1 24c 16]
+POC   18 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )      88464 bits [Y 39.9589 dB    U 45.2130 dB    V 46.8701 dB] [ET   973 ] [L0 16 0] [L1 20c 24]
+POC   17 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      49120 bits [Y 39.8935 dB    U 45.3293 dB    V 46.9294 dB] [ET   664 ] [L0 16 0] [L1 18c 20]
+POC   19 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      49832 bits [Y 39.8601 dB    U 45.1623 dB    V 46.7673 dB] [ET   673 ] [L0 18c 16] [L1 20 24]
+POC   22 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )      96600 bits [Y 39.9121 dB    U 45.0917 dB    V 46.7014 dB] [ET   963 ] [L0 20c 16] [L1 24 20]
+POC   21 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      53200 bits [Y 39.8276 dB    U 45.0495 dB    V 46.6512 dB] [ET   698 ] [L0 20 16] [L1 22c 24]
+POC   23 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      59240 bits [Y 39.8231 dB    U 45.0301 dB    V 46.6018 dB] [ET   656 ] [L0 22c 20] [L1 24 22]
+POC   28 LId:  0 TId: 3 ( STSA, B-SLICE, QP 26 )     282960 bits [Y 40.0201 dB    U 44.8375 dB    V 46.3665 dB] [ET  1957 ] [L0 24 16] [L1 24c 16]
+POC   26 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )     117376 bits [Y 39.7680 dB    U 44.8408 dB    V 46.3502 dB] [ET  1018 ] [L0 24 16] [L1 28c 24]
+POC   25 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      68336 bits [Y 39.7415 dB    U 44.9011 dB    V 46.4306 dB] [ET   643 ] [L0 24 16] [L1 26c 28]
+POC   27 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      74992 bits [Y 39.6083 dB    U 44.7082 dB    V 46.1119 dB] [ET   646 ] [L0 26c 24] [L1 28 26]
+POC   30 LId:  0 TId: 4 ( STSA, B-SLICE, QP 28 )     157352 bits [Y 39.5942 dB    U 44.4951 dB    V 45.8576 dB] [ET  1344 ] [L0 28 16] [L1 28c 16]
+POC   29 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )      73832 bits [Y 39.4942 dB    U 44.5519 dB    V 45.8771 dB] [ET   646 ] [L0 28 16] [L1 30c 28]
+POC   31 LId:  0 TId: 5 ( STSA, B-SLICE, QP 29 )     110608 bits [Y 39.4131 dB    U 44.2416 dB    V 45.5637 dB] [ET   969 ] [L0 30 28] [L1 30c 28]
+
+LayerId  0
+	Total Frames |  Bitrate      Y-PSNR   U-PSNR   V-PSNR   YUV-PSNR 
+	32           a  7529.3875    39.8695  45.1383  46.7236  41.1039  
+
+ finished @ Sun Jun 19 03:27:40 2022
+ Total Time:    43315.143 sec. [user]    51869.774 sec. [elapsed]
