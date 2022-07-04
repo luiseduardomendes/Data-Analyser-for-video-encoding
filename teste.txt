@@ -1,0 +1,10 @@
+/home/luispmendes/VVCSoftware_VTM/bin/EncoderAppStatic 
+-c /home/luispmendes/VVCSoftware_VTM/cfg/encoder_randomaccess_vtm.cfg 
+-c /home/luispmendes/VVCSoftware_VTM/cfg-files/FoodMarket4.cfg 
+-b /home/luispmendes/VVCSoftware_VTM/out/-4x4--SAD-VTM-4.SAD-8.1C-RdCost-4x4--SAD -8x8--1/videos_bin/FoodMarket4.bin -q 37 -f 32  --SIMD=SCALAR >> /home/luispmendes/VVCSoftware_VTM/out/-4x4--SAD-VTM-4.SAD-8.1C-RdCost-4x4--SAD -8x8--1//FoodMarket4/randomaccess/exec_log/log_FoodMarket4_qp37_randomaccess_-4x4--SAD-VTM-4.SAD-8.1C-RdCost-4x4--SAD -8x8--1_exec.gplog
+
+"/home/luispmendes/VVCSoftware_VTM/bin/EncoderAppStatic" 
+-c "/home/luispmendes/VVCSoftware_VTM/cfg/encoder_randomaccess_vtm.cfg" 
+-c "/home/luispmendes/VVCSoftware_VTM/cfg-files/FoodMarket4.cfg" 
+-b "/home/luispmendes/VVCSoftware_VTM/out/-4x4--SAD-VTM-4.SAD-8.1C-RdCost-4x4--SAD -8x8--1/videos_bin/FoodMarket4.bin" 
+-q 37 -f 32  --SIMD=SCALAR >> "/home/luispmendes/VVCSoftware_VTM/out/-4x4--SAD-VTM-4.SAD-8.1C-RdCost-4x4--SAD -8x8--1/FoodMarket4randomaccess/exec_log/log_FoodMarket4_qp37_randomaccess_-4x4--SAD-VTM-4.SAD-8.1C-RdCost-4x4--SAD -8x8--1_exec.gplog"
