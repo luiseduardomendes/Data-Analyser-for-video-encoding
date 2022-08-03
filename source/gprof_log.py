@@ -89,7 +89,7 @@ def group_by_filename_2(data_set : list) -> dict:
     output = {}
 
     for df in data_set:
-        name = df['fileName'][0] + '_' + df['encoder'][0]
+        name = df['satd'][0] + '_' + df['fileName'][0] + '_' + df['encoder'][0]
         if not name in names:
             output[name] = create_df()
             names.append(name)
