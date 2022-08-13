@@ -1,6 +1,8 @@
 import re
+import os
 import pandas as pd
 import numpy as np
+from frame_parsing import frame_parsing as fp
 
 def read_log(file : str, name : str, qp : int, encoder : str, satd : str) -> pd.DataFrame:
     
@@ -115,3 +117,9 @@ def create_df() -> pd.DataFrame:
             'qp' : []
         }
     )
+
+def frame_parsing(file, output = None):
+    df = fp.parsing(file)
+    if output == None:
+        output = os.path.splitext(file)[0]+'.csv'
+    df.to_csv(output)
