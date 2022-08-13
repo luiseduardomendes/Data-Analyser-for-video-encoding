@@ -6,7 +6,7 @@ class frame_parsing:
 
     pattern = re.compile(r'^POC\s+(\d+)\sLId:\s+\d+\sTId:\s+\d+\s+\(\D+(\d+)\s\)\s+(\d+) bits\s+\[Y\s(\d+\.\d+)\sdB\s+U\s(\d+\.\d+)\sdB\s+V\s(\d+\.\d+)\sdB\]')
 
-    def parsing(file):
+    def parsing(self, file):
         with open(file) as f:
             data = {
                 'frame': [],
@@ -17,7 +17,7 @@ class frame_parsing:
                 'vpsnr': []
             }
             for line in f:
-                temp = pattern.findall(line)
+                temp = self.pattern.findall(line)
                 if len(temp) > 0:
                     temp = temp[0]
                     for i, key in enumerate(data.keys()):
